@@ -1,7 +1,12 @@
 import React from 'react';
 
+import { Input } from '../../components/Atom';
+
 // assets
 import kv from '../../assets/main_kv.jpeg';
+
+// style
+import * as M from './Main.style';
 
 function Main() {
   return (
@@ -9,18 +14,10 @@ function Main() {
       <div className="flex items-center">
         <img src={kv} alt="" className="w-9/12 rounded-3xl" />
         <div className="-ml-60 p-10 bg-white rounded-3xl">
-          <h2>어디로 갈까요?</h2>
-          <form action="">
-            <label>
-              <input type="text" placeholder="위치" />
-            </label>
-            <label>
-              <input type="text" placeholder="체크인 날짜 체크아웃 날짜" />
-            </label>
-            <label>
-              <input type="text" placeholder="인원" />
-            </label>
-          </form>
+          <h2 className="text-3xl font-bold">어디로 갈까요?</h2>
+          <Input id="locat" label="위치" />
+          <Input id="check" label="체크인 날짜 체크아웃 날짜" />
+          <Input id="num" label="인원" />
         </div>
       </div>
       <div>

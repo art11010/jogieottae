@@ -6,7 +6,7 @@ import Logo from '../../assets/logo_pink.png';
 
 function Header() {
   return (
-    <header className="bg-main mb-10">
+    <header className="mb-10">
       <div className="container flex items-center py-5">
         <Link to="/" className="mr-auto">
           <h1>
