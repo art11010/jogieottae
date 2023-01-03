@@ -23,7 +23,7 @@ function RoomList() {
     <li key={idx}>
       <button>
         <img src={lst.imgSrc} alt="" className="rounded-xl" />
-        <p className="mt-2">
+        <p className="mt-2 px-2 text-left">
           {lst.title}
           <br />
           {lst.date}
