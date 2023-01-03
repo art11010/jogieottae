@@ -1,10 +1,14 @@
 import React from 'react';
 
 // style
-import styled from 'styled-components';
-export const InputCss = styled.input`
-  width: 100%;
-  border: 1px solid #999;
+import tw from 'tailwind-styled-components';
+export const InputCss = tw.input`
+  p-3
+  h-12
+  w-full
+  border
+  border-gray-400
+  rounded-xl
 `;
 
 // defaultProps
@@ -16,10 +20,10 @@ function Input(props) {
   const { id, label, type, placeholder } = props;
   return (
     <>
-      <label htmlFor="id" className="">
-        {label}
-      </label>
-      <InputCss id={id} type="text" placeholder={placeholder} className="" />
+      <div className="mt-3">
+        <label htmlFor="id">{label}</label>
+        <InputCss id={id} type={type} placeholder={placeholder} />
+      </div>
     </>
   );
 }

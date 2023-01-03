@@ -6,10 +6,13 @@ module.exports = {
       container: {
         center: true,
       },
+      width: {
+        '4p': '22%',
+      },
       colors: {
         main: '#b6f0ff',
         'main-light': '#ffa1c6',
-        'main-middle': '#cd2568',
+        'main-middle': '#ff4182',
         'main-drak': '#bb1356',
       },
     },

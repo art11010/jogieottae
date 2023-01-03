@@ -1,6 +1,13 @@
-import styled from 'styled-components';
+import tw from 'tailwind-styled-components';
 
-export const Logo = styled.h1`
-  font-size: 55px;
-  color: coral;
+export const whereBox = tw.div`
+  absolute
+  bottom-1/2
+  right-0
+  translate-y-1/2
+  p-10
+  w-2/5
+  bg-white
+  rounded-3xl
+  shadow-2xl
 `;

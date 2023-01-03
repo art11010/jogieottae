@@ -2,9 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-main-light">
+    <footer className="mt-10 py-5 border-t border-gray-400">
       <div className="container">
-        <h1>Footer</h1>
         <p>
           고객행복센터 1670-6250
           <br />
