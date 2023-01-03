@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className="bg-sky-200">
+    <footer className="bg-main-light">
       <div className="container">
         <h1>Footer</h1>
         <p>
@@ -17,7 +17,7 @@ function Footer() {
           있습니다.
         </p>
       </div>
-    </div>
+    </footer>
   );
 }
 
