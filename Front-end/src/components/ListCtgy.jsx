@@ -20,8 +20,8 @@ function CtgyList() {
     { title: '펜션 / 풀빌라', imgSrc: ctgy },
   ];
   const ctgyMap = ctgyArr.map((lst, idx) => (
-    <li key={idx} className="py-5 text-center bg-gray-100 rounded-xl">
-      <button>
+    <li key={idx} className="text-center bg-gray-100 rounded-xl">
+      <button className="py-5">
         <img src={lst.imgSrc} alt="" className="m-auto w-1/2" />
         <p className="mt-2">{lst.title}</p>
       </button>

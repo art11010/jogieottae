@@ -17,9 +17,9 @@ function ListPlace() {
     { title: '대전' },
   ];
   const ctgyMap = ctgyArr.map((lst, idx) => (
-    <li key={idx} className="py-5 text-center bg-gray-100 rounded-full">
-      <button>
-        <p className="">{lst.title}</p>
+    <li key={idx} className="text-center bg-gray-100 rounded-full">
+      <button className="w-full py-5">
+        <p>{lst.title}</p>
       </button>
     </li>
   ));

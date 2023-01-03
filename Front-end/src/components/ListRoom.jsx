@@ -20,7 +20,7 @@ function RoomList() {
     { title: '베를린, 독일', date: '2월 25일 ~ 3월 3일', imgSrc: list },
   ];
   const roomMap = roomArr.map((lst, idx) => (
-    <li key={idx} className="">
+    <li key={idx}>
       <button>
         <img src={lst.imgSrc} alt="" className="rounded-xl" />
         <p className="mt-2">
