@@ -13,7 +13,10 @@ function Header() {
             <img src={Logo} alt="조기어때" className="w-44" />
           </h1>
         </Link>
-        <Link to="/cart" className="hover:text-main">
+        <Link to="/payment" className="hover:text-main">
+          예약하기
+        </Link>
+        <Link to="/cart" className="pl-5 hover:text-main">
           장바구니
         </Link>
         <Link to="/login" className="pl-5 hover:text-main">
