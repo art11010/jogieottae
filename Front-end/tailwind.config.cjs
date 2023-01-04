@@ -6,16 +6,16 @@ module.exports = {
       container: {
         center: true,
       },
-      width: {
-        '4p': '22%',
-      },
       colors: {
-        main: '#b6f0ff',
-        'main-light': '#ffa1c6',
-        'main-middle': '#ff4182',
-        'main-drak': '#bb1356',
+        main: '#ff4182',
+      },
+      boxShadow: {
+        default: '0 0 40px -10px rgb(0 0 0 / 0.25);',
       },
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: false,
+  },
 };

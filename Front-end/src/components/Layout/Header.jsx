@@ -13,10 +13,10 @@ function Header() {
             <img src={Logo} alt="조기어때" className="w-44" />
           </h1>
         </Link>
-        <Link to="/cart" className="hover:text-main-middle">
+        <Link to="/cart" className="hover:text-main">
           장바구니
         </Link>
-        <Link to="/login" className="pl-5 hover:text-main-middle">
+        <Link to="/login" className="pl-5 hover:text-main">
           로그인
         </Link>
       </div>

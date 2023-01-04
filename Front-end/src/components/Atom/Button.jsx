@@ -9,7 +9,7 @@ export const ButtonCss = tw.button`
   h-12
   w-full
   text-white
-  bg-main-middle
+  bg-main
   rounded-xl
 `;
 

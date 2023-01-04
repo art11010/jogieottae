@@ -12,6 +12,7 @@
     "_preview": "vite preview : 로컬에서 배포용 빌드에 대한 프리뷰 서버 실행"
   },
   "dependencies": {
+    "daisyui": "^2.46.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",

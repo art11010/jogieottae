@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import Cart from './pages/Cart/Cart';
+import Payment from './pages/Payment/Payment';
 
 // style
 import CommonStyle from './style/Common.style';
@@ -20,6 +21,7 @@ function App() {
           <Route path={'/'} element={<Main />} />
           <Route path={'login'} element={<Login />} />
           <Route path={'cart'} element={<Cart />} />
+          <Route path={'payment'} element={<Payment />} />
         </Route>
       </Routes>
     </BrowserRouter>
