@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ListPlace() {
+function Place() {
   const ctgyArr = [
     { title: '제주도' },
     { title: '부산' },
@@ -9,14 +9,13 @@ function ListPlace() {
   ];
 
   const ctgyMap = ctgyArr.map((lst, idx) => (
-    <li key={lst.title + idx} className="text-center bg-gray-100 rounded-full">
-      <button className="w-full py-5">
-        <p>{lst.title}</p>
+    <li key={lst.title + idx}>
+      <button className="w-full py-5 btn-secondary rounded-full">
+        {lst.title}
       </button>
     </li>
   ));
 
   return <>{ctgyMap}</>;
 }
-
-export default ListPlace;
+export default Place;

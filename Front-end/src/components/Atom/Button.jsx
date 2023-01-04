@@ -1,18 +1,5 @@
 import React from 'react';
 
-// style
-import tw from 'tailwind-styled-components';
-export const ButtonCss = tw.button`
-  block
-  mt-3
-  p-3
-  h-12
-  w-full
-  text-white
-  bg-main
-  rounded-xl
-`;
-
 // defaultProps
 Button.defaultProps = {
   label: '',
@@ -20,8 +7,8 @@ Button.defaultProps = {
 };
 
 function Button(props) {
-  const { text } = props;
-  return <ButtonCss>{text}</ButtonCss>;
+  const { addclass, text } = props;
+  return <button className={'btn btn-primary ' + addclass}>{text}</button>;
 }
 
 export default Button;

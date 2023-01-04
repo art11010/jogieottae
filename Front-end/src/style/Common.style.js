@@ -1,11 +1,11 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  * {
-    _color: purple;
+  *:focus {
+    outline: 0;
   }
   body {
-    font-family: "Noto Sans KR", sans-serif !important;
+    font-family: "Noto Sans KR", sans-serif;
   }
 `;
 export default GlobalStyle;

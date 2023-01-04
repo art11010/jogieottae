@@ -15,17 +15,20 @@ function Main() {
     <div className="container">
       <div className="relative">
         <img src={kv} alt="" className="w-9/12 rounded-3xl" />
-        <ShadowBox addclass="absolute bottom-1/2 right-0 translate-y-1/2">
+        <ShadowBox addclass="w-2/5 absolute bottom-1/2 right-0 translate-y-1/2">
           <Title addclass="text-main" text="어디로 갈까요?" />
           <Input id="locat" label="위치" />
-          <Input id="check" label="체크인 날짜 체크아웃 날짜" />
+          <div className="grid grid-cols-2 gap-5">
+            <Input id="in" label="체크인 날짜" type="date" />
+            <Input id="out" label="체크아웃 날짜" type="date" />
+          </div>
           <Input id="num" label="인원" />
-          <Button text="검색" />
+          <Button addclass="mt-3 btn-block" text="검색" />
         </ShadowBox>
       </div>
-      <List title="카테고리" type="category" />
-      <List title="국내 인기 여행지" type="place" />
-      <List title="속세를 벗어난 숙소" type="room" />
+      <List text="카테고리" type="category" />
+      <List text="국내 인기 여행지" type="place" />
+      <List text="속세를 벗어난 숙소" type="room" />
     </div>
   );
 }

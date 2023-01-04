@@ -3,26 +3,23 @@ import React from 'react';
 // style
 import tw from 'tailwind-styled-components';
 export const InputCss = tw.input`
-  p-3
-  h-12
   w-full
-  border
+  input
   border-gray-400
-  rounded-xl
+  focus:outline-none
 `;
 
 // defaultProps
 Input.defaultProps = {
-  label: '',
   type: 'text',
 };
 function Input(props) {
-  const { id, label, type, placeholder } = props;
+  const { id, label, type, placeholder, value } = props;
   return (
     <>
       <div className="mt-3">
-        <label htmlFor="id">{label}</label>
-        <InputCss id={id} type={type} placeholder={placeholder} />
+        <label htmlFor={id}>{label}</label>
+        <InputCss id={id} type={type} placeholder={placeholder} value={value} />
       </div>
     </>
   );

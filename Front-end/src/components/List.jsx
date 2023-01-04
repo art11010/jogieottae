@@ -16,7 +16,7 @@ export const UlCss = tw.ul`
 `;
 
 function List(props) {
-  const { title, type } = props;
+  const { text, type } = props;
   let ListEl;
 
   if (type == 'category') ListEl = <Category />;
@@ -25,7 +25,7 @@ function List(props) {
 
   return (
     <>
-      <Title addclass="mt-20" text={title} />
+      <Title addclass="mt-20" text={text} />
       <UlCss>{ListEl}</UlCss>
     </>
   );

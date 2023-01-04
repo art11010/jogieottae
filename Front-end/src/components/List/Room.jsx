@@ -1,9 +1,9 @@
 import React from 'react';
 
 // assets
-import roomImg from '../../assets/list.jpeg';
+import roomImg from '../../assets/img_room.jpeg';
 
-function RoomList() {
+function Room() {
   const roomArr = [
     { title: '파리, 프랑스', date: '2월 25일 ~ 3월 3일', imgSrc: roomImg },
     { title: '도쿄, 일본', date: '2월 25일 ~ 3월 3일', imgSrc: roomImg },
@@ -31,4 +31,4 @@ function RoomList() {
   return <>{roomMap}</>;
 }
 
-export default RoomList;
+export default Room;

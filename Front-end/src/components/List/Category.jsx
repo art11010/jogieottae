@@ -1,7 +1,7 @@
 import React from 'react';
 
 // assets
-import ctgyIco from '../../assets/category.png';
+import ctgyIco from '../../assets/ico_home.png';
 
 function Category() {
   const ctgyArr = [
@@ -12,8 +12,8 @@ function Category() {
   ];
 
   const ctgyMap = ctgyArr.map((lst, idx) => (
-    <li key={lst.title + idx} className="text-center bg-gray-100 rounded-xl">
-      <button className="py-5">
+    <li key={lst.title + idx}>
+      <button className="py-5 btn-secondary rounded-xl">
         <img src={lst.imgSrc} alt="" className="m-auto w-1/2" />
         <p className="mt-2">{lst.title}</p>
       </button>
