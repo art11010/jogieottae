@@ -1,7 +1,7 @@
 import React from 'react';
 
 // assets
-import roomImg from '../../assets/img_room.jpeg';
+import roomImg from '../../../assets/img_room.jpeg';
 
 function Pay() {
   const payArr = [

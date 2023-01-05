@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from '../Atom';
+import { Input } from '../../../components/Atom';
 
 function Pay() {
   return (

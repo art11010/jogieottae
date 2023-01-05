@@ -6,6 +6,10 @@ module.exports = {
       container: {
         center: true,
       },
+      spacing: {
+        '1/2': '50%',
+        full: '100%',
+      },
       colors: {
         main: '#ff4182',
       },

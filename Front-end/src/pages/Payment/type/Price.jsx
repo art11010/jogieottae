@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Radio } from '../Atom';
+import { Radio } from '../../../components/Atom';
 
 function Price() {
   return (
@@ -21,7 +21,6 @@ function Price() {
         <Radio id="payType2" name="payType" label="카카오페이" checked />
         <Radio id="payType1" name="payType" label="카드 결제" />
       </div>
-      <Button addclass="mt-3 btn-block" text="예약하기" />
     </div>
   );
 }
