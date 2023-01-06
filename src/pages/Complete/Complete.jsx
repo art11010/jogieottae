@@ -1,6 +1,7 @@
 import React from 'react';
 
-import ShadowBox from '../../components/ShadowBox';
+import { ShadowBox } from '../../components/Atom';
+
 import CompPay from './type/CompPay';
 import CompJoin from './type/CompJoin';
 

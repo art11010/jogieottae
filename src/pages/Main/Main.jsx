@@ -1,8 +1,7 @@
 import React from 'react';
 
-import ShadowBox from '../../components/ShadowBox';
 import List from '../../components/List';
-import { Button, Input, Title } from '../../components/Atom';
+import { Button, Input, Title, ShadowBox } from '../../components/Atom';
 
 // assets
 import kv from '../../assets/main_kv.jpeg';

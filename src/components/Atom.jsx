@@ -3,5 +3,8 @@ import Input from './Atom/Input';
 import Radio from './Atom/Radio';
 import Title from './Atom/Title';
 import TitleSub from './Atom/TitleSub';
+import ShadowBox from './Atom/ShadowBox';
+import BorderBox from './Atom/BorderBox';
+import Popup from './Atom/Popup';
 
-export { Button, Input, Radio, Title, TitleSub };
+export { Button, Input, Radio, Title, TitleSub, ShadowBox, BorderBox, Popup };
