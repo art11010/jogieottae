@@ -6,5 +6,16 @@ import TitleSub from './Atom/TitleSub';
 import ShadowBox from './Atom/ShadowBox';
 import BorderBox from './Atom/BorderBox';
 import Popup from './Atom/Popup';
+import Heart from './Atom/Heart';
 
-export { Button, Input, Radio, Title, TitleSub, ShadowBox, BorderBox, Popup };
+export {
+  Button,
+  Input,
+  Radio,
+  Title,
+  TitleSub,
+  ShadowBox,
+  BorderBox,
+  Popup,
+  Heart,
+};

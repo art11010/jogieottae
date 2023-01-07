@@ -1,13 +1,10 @@
 import React from 'react';
 
-import List from '../../components/List';
 import { Button, Input, Title, ShadowBox } from '../../components/Atom';
+import List from '../../components/List';
 
 // assets
 import kv from '../../assets/main_kv.jpeg';
-
-// style
-import * as M from './Main.style';
 
 function Main() {
   return (
