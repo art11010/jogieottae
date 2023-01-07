@@ -16,6 +16,9 @@ module.exports = {
       boxShadow: {
         default: '0 0 40px -10px rgb(0 0 0 / 0.25);',
       },
+      minHeight: {
+        960: '960px'
+      }
     },
   },
   plugins: [require('daisyui')],
@@ -28,21 +31,20 @@ module.exports = {
           secondary: '#f3f4f6',
           'secondary-content': '#000',
           'secondary-focus': '#eee',
+          accent: '#FEE500',
         },
+        // mytheme: {
+          // primary: '#ff4182',
+          // secondary: '#D926A9',
+          // accent: '#1FB2A6',
+          // neutral: '#191D24',
+          // 'base-100': '#2A303C',
+          // info: '#3ABFF8',
+          // success: '#36D399',
+          // warning: '#FBBD23',
+          // error: '#F87272',
+        // },
       },
-      // {
-      //   mytheme: {
-      //     // primary: '#ff4182',
-      //     // secondary: '#D926A9',
-      //     // accent: '#1FB2A6',
-      //     // neutral: '#191D24',
-      //     // 'base-100': '#2A303C',
-      //     // info: '#3ABFF8',
-      //     // success: '#36D399',
-      //     // warning: '#FBBD23',
-      //     // error: '#F87272',
-      //   },
-      // },
     ],
     darkTheme: 'dark',
   },

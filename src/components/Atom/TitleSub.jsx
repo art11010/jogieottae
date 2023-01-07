@@ -15,7 +15,7 @@ TitleSub.defaultProps = {
 function TitleSub(props) {
   const { addclass, text } = props;
 
-  return <TitleSubCss className={addclass}>{text}</TitleSubCss>;
+  return <TitleSubCss className={addclass}>{props.children}</TitleSubCss>;
 }
 
 export default TitleSub;
