@@ -29,7 +29,7 @@ function Room() {
     </li>
   ));
 
-  return <>{roomMap}</>;
+  return <ul className="mt-2 grid grid-cols-4 gap-4">{roomMap}</ul>;
 }
 
 export default Room;

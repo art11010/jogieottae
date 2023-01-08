@@ -29,7 +29,7 @@ function Price(props) {
         쿠폰 할인 <strong className="text-lg">-5,000원</strong>
       </a>
       <Popup>
-        <TitleSub addclass="mb-2" text="쿠폰 할인" />
+        <TitleSub addclass="mb-2">쿠폰 할인</TitleSub>
         {payMap}
       </Popup>
       <ul>

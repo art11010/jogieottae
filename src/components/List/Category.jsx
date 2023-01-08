@@ -20,7 +20,7 @@ function Category() {
     </li>
   ));
 
-  return <>{ctgyMap}</>;
+  return <ul className="mt-2 grid grid-cols-4 gap-4">{ctgyMap}</ul>;
 }
 
 export default Category;
