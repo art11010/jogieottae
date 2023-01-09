@@ -13,7 +13,10 @@ function Header() {
             <img src={Logo} alt="조기어때" className="w-44" />
           </h1>
         </Link>
-        <Link to="/complete" className="hover:text-main">
+        <Link to="/product/list" className="pl-5 hover:text-main">
+          상품 리스트
+        </Link>
+        <Link to="/complete" className="pl-5 hover:text-main">
           완료
         </Link>
         <Link to="/payment" className="pl-5 hover:text-main">
@@ -24,6 +27,15 @@ function Header() {
         </Link>
         <Link to="/login" className="pl-5 hover:text-main">
           로그인
+        </Link>
+        <Link to="/login/join" className="pl-5 hover:text-main">
+          회원가입
+        </Link>
+        <Link to="/login/findid" className="pl-5 hover:text-main">
+          아이디 찾기
+        </Link>
+        <Link to="/login/findpw" className="pl-5 hover:text-main">
+          비밀번호 찾기
         </Link>
       </div>
     </header>
