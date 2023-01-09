@@ -38,16 +38,16 @@ function Cart() {
   ];
   return (
     <div className="container">
-      <Title text="장바구니" />
+      <Title>장바구니</Title>
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
-          <TitleSub addclass="mb-2" text="숙소 정보" />
+          <TitleSub addclass="mb-2">숙소 정보</TitleSub>
           <BookInfo roomdata={rommList} />
         </ShadowBox>
         <ShadowBox>
-          <TitleSub addclass="mb-2" text="금액 정보" />
+          <TitleSub addclass="mb-2">금액 정보</TitleSub>
           <Price roomdata={rommList} />
-          <Button addclass="mt-3 btn-block" text="예약하기" />
+          <Button addclass="mt-3 btn-block">예약하기</Button>
         </ShadowBox>
       </div>
     </div>

@@ -7,11 +7,6 @@ export const TitleSubCss = tw.h4`
   font-bold
 `;
 
-// defaultProps
-TitleSub.defaultProps = {
-  text: '제목을 입력해주세요',
-};
-
 function TitleSub(props) {
   const { addclass, text } = props;
 

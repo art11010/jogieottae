@@ -46,22 +46,22 @@ function Payment() {
 
   return (
     <div className="container">
-      <Title text="예약하기" />
+      <Title>예약하기</Title>
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
-          <TitleSub addclass="mb-2" text="예약자 정보" />
+          <TitleSub addclass="mb-2">예약자 정보</TitleSub>
           <Person />
-          <TitleSub addclass="mb-2" text="예약 정보" />
+          <TitleSub addclass="mb-2">예약 정보</TitleSub>
           <BookInfo roomdata={rommList} />
         </ShadowBox>
         <ShadowBox>
-          <TitleSub addclass="mb-2" text="금액 정보" />
+          <TitleSub addclass="mb-2">금액 정보</TitleSub>
           <Price roomdata={rommList} />
           <div className="mt-5 px-5 border-t border-dashed border-gray-400">
             <Radio id="payType2" name="payType" label="카카오페이" checked />
             <Radio id="payType1" name="payType" label="카드 결제" />
           </div>
-          <Button addclass="mt-3 btn-block" text="결제하기" />
+          <Button addclass="mt-3 btn-block">결제하기</Button>
         </ShadowBox>
       </div>
     </div>

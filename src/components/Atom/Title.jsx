@@ -7,15 +7,10 @@ export const TitleCss = tw.h3`
   font-bold
 `;
 
-// defaultProps
-Title.defaultProps = {
-  text: '제목을 입력해주세요',
-};
-
 function Title(props) {
-  const { addclass, text } = props;
+  const { addclass } = props;
 
-  return <TitleCss className={addclass}>{text}</TitleCss>;
+  return <TitleCss className={addclass}>{props.children}</TitleCss>;
 }
 
 export default Title;
