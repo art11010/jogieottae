@@ -10,8 +10,8 @@ function Main() {
   return (
     <div className="container">
       <div className="relative">
-        <img src={kv} alt="" className="w-9/12 rounded-3xl" />
-        <ShadowBox addclass="w-2/5 absolute bottom-1/2 right-0 translate-y-1/2">
+        <img src={kv} alt="" className="w-3/4 rounded-3xl" />
+        <ShadowBox addclass="w-1/3 absolute bottom-1/2 right-0 translate-y-1/2">
           <Title addclass="text-main">어디로 갈까요?</Title>
           <Input id="locat" label="위치" />
           <div className="grid grid-cols-2 gap-5">

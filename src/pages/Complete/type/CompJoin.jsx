@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, TitleSub } from '../../../components/Atom';
+import { Alink, Button, TitleSub } from '../../../components/Atom';
 
 // assets
 import icoJoin from '../../../assets/ico_comp-join.png';
@@ -18,7 +18,9 @@ function CompPay() {
         alt="가입 완료 아이콘"
         className="m-auto mt-10 pb-5 w-20"
       />
-      <Button addclass="mt-5 px-10">홈으로</Button>
+      <Alink to="/" addclass="mt-5 px-10">
+        홈으로
+      </Alink>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Alink from './Atom/Alink';
 import Button from './Atom/Button';
 import Input from './Atom/Input';
 import Radio from './Atom/Radio';
@@ -9,6 +10,7 @@ import Popup from './Atom/Popup';
 import Heart from './Atom/Heart';
 
 export {
+  Alink,
   Button,
   Input,
   Radio,
