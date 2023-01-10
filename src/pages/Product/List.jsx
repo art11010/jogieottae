@@ -21,12 +21,8 @@ function ProductList() {
       </div>
       <div className="grid grid-cols-2 mt-20 gap-x-5">
         <Title addclass="mb-5 col-span-2">지금 갈 수 있는 곳</Title>
-        <div>
-          <Room />
-        </div>
-        <div>
-          <ProductMap></ProductMap>
-        </div>
+        <Room />
+        <ProductMap />
       </div>
     </div>
   );
