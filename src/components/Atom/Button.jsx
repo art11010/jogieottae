@@ -1,10 +1,5 @@
 import React from 'react';
 
-// defaultProps
-Button.defaultProps = {
-  label: '',
-};
-
 function Button(props) {
   const { addclass } = props;
   return (
