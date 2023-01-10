@@ -25,7 +25,7 @@ function ProductList() {
           <Room />
         </div>
         <div>
-        <ProductMap></ProductMap>
+          <ProductMap></ProductMap>
         </div>
       </div>
     </div>
