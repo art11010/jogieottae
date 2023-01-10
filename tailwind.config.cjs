@@ -9,9 +9,11 @@ module.exports = {
       spacing: {
         '1/2': '50%',
         full: '100%',
+        500: '500px',
       },
       colors: {
         main: '#ff4182',
+        kakao: '#FEE500',
       },
       boxShadow: {
         default: '0 0 40px -10px rgb(0 0 0 / 0.25);',
