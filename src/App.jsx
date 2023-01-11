@@ -15,6 +15,7 @@ import Cart from './pages/Cart/Cart';
 import Payment from './pages/Payment/Payment';
 import Complete from './pages/Complete/Complete';
 import ProductList from './pages/Product/List';
+import BookingList from './pages/mypage/BookingList';
 
 // style
 import CommonStyle from './style/Common.style';
@@ -36,6 +37,7 @@ function App() {
           <Route path={'payment'} element={<Payment />} />
           <Route path={'complete'} element={<Complete />} />
           <Route path={'product/list'} element={<ProductList />} />
+          <Route path={'mypage/booking'} element={<BookingList />} />
         </Route>
       </Routes>
     </BrowserRouter>
