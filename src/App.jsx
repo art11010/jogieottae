@@ -12,7 +12,7 @@ import FindPW from './pages/Login/FindPW';
 import FindID from './pages/Login/FindID';
 // Mypage
 // import BookingList from './pages/Mypage/BookingList';
-import BookingDetails from './pages/Mypage/BookingDetails';
+// import BookingDetails from './pages/Mypage/BookingDetails';
 import Mypage from './pages/Mypage/Mypage';
 import ReviewView from './pages/Mypage/ReviewView';
 
@@ -38,7 +38,7 @@ function App() {
           <Route path={'mypage/mypage'} element={<Mypage />} />
           <Route path={'mypage/review/view'} element={<ReviewView />} />
           {/* <Route path={'mypage/booking'} element={<BookingList />} /> */}
-          <Route path={'mypage/booking/details'} element={<BookingDetails />} />
+          {/* <Route path={'mypage/booking/details'} element={<BookingDetails />} /> */}
           <Route path={'cart'} element={<Cart />} />
           <Route path={'payment'} element={<Payment />} />
           <Route path={'complete'} element={<Complete />} />
