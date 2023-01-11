@@ -4,7 +4,7 @@ import * as L from './Login.style';
 
 import { Button, Input, ShadowBox, TitleSub } from '../../components/Atom';
 
-function Join() {
+function FindPW() {
   return (
     <ShadowBox addclass="w-500 m-auto mt-40 mb-40">
       <TitleSub addclass="text-center mb-5">비밀번호 찾기</TitleSub>
@@ -16,4 +16,4 @@ function Join() {
   );
 }
 
-export default Join;
+export default FindPW;
