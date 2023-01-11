@@ -9,6 +9,8 @@ import Login from './pages/Login/Login';
 import Join from './pages/Login/Join';
 import FindPW from './pages/Login/FindPW';
 import FindID from './pages/Login/FindID';
+import Mypage from './pages/Mypage/Mypage';
+import ReviewView from './pages/Mypage/ReviewView';
 import Cart from './pages/Cart/Cart';
 import Payment from './pages/Payment/Payment';
 import Complete from './pages/Complete/Complete';
@@ -28,6 +30,8 @@ function App() {
           <Route path={'login/findpw'} element={<FindPW />} />
           <Route path={'login/findid'} element={<FindID />} />
           <Route path={'login/join'} element={<Join />} />
+          <Route path={'mypage/mypage'} element={<Mypage />} />
+          <Route path={'mypage/review/view'} element={<ReviewView />} />
           <Route path={'cart'} element={<Cart />} />
           <Route path={'payment'} element={<Payment />} />
           <Route path={'complete'} element={<Complete />} />
