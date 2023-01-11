@@ -5,7 +5,7 @@ import { Button, Input, Title } from '../../components/Atom';
 // User
 import UserLayout from '../../components/User/UserLayout';
 
-function Mypage(){
+function Mypage() {
   return (
     <UserLayout onMenu="mypage">
       <div className="w-2/4">
@@ -31,7 +31,9 @@ function Mypage(){
           <Button addclass="w-2/5 mt-3">변경</Button>
         </div>
         <div className="flex justify-end mt-6 border-y border-b-0">
-          <Link to="" className="btn btn-secondary-focus mt-6">회원 탈퇴</Link>
+          <Link to="" className="btn btn-secondary-focus mt-6">
+            회원 탈퇴
+          </Link>
         </div>
       </div>
     </UserLayout>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Title, TitleSub, BorderBox, Button } from '../../components/Atom';
 
+import UserLayout from '../../components/User/UserLayout';
+
 // assets
 import roomImg from '../../assets/img_room.jpeg';
 
@@ -34,7 +36,7 @@ function BookingList() {
     <BorderBox key={lst.roomName + idx}>
       <div className="pb-2 flex items-center justify-between border-b border-gray-400">
         <TitleSub>{lst.paydata}</TitleSub>
-        <Link to="/mypage/booking" className="text-main">
+        <Link to="/mypage/booking/details" className="text-main">
           예약 내역 &gt;
         </Link>
       </div>
@@ -44,7 +46,8 @@ function BookingList() {
           <img src={roomImg} alt="" className="w-full rounded-xl" />
         </button>
         <div className="mt-5">
-          <h5 className="mb-2 text-xl font-bold">{lst.roomName}</h5>
+          <p className="text-xs text-gray-400">예약번호 : Y01010101010101</p>
+          <h5 className="my-2 text-xl font-bold">{lst.roomName}</h5>
           <p>
             {lst.date}, {lst.num}명
           </p>
@@ -58,10 +61,10 @@ function BookingList() {
   ));
 
   return (
-    <div className="container">
+    <UserLayout onMenu="booking">
       <Title>예약 내역</Title>
-      <div className="mt-5 grid grid-cols-4 gap-10">{payMap}</div>
-    </div>
+      <div className="mt-5 grid grid-cols-3 gap-5">{payMap}</div>
+    </UserLayout>
   );
 }
 
