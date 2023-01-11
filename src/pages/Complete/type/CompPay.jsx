@@ -9,7 +9,7 @@ function CompPay() {
   return (
     <div className="absolute bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2">
       <TitleSub addclass="pb-5">예약이 완료되었습니다.</TitleSub>
-      <p>주문번호 : Y01010101010101</p>
+      <p>예약번호 : Y01010101010101</p>
       <p>결제 금액 : 100000원</p>
       <img
         src={icoPay}
