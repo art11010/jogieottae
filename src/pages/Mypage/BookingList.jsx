@@ -44,8 +44,8 @@ function BookingList() {
           <img src={roomImg} alt="" className="w-full rounded-xl" />
         </button>
         <div className="mt-5">
-          <p className="text-xs text-gray-400">예약번호 : Y01010101010101</p>
-          <h5 className="my-2 text-xl font-bold">{lst.roomName}</h5>
+          <p className="text text-gray-400">예약번호 : Y01010101010101</p>
+          <h4 className="my-2 text-2xl font-bold">{lst.roomName}</h4>
           <p>
             {lst.date}, {lst.num}명
           </p>

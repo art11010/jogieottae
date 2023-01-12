@@ -2,7 +2,7 @@ import React from 'react';
 
 // style
 import tw from 'tailwind-styled-components';
-export const TitleCss = tw.h3`
+export const TitleCss = tw.h2`
   text-3xl
   font-bold
 `;
