@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Input, Title } from '../../components/Atom';
 
-function MyInfo() {
+function Mypage() {
   return (
     <>
       <div className="w-2/4">
@@ -37,4 +37,4 @@ function MyInfo() {
   );
 }
 
-export default MyInfo;
+export default Mypage;

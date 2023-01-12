@@ -35,10 +35,10 @@ function Header() {
             <h2 className="font-bold text-lg text-main pointer-events-none">
               마이페이지
             </h2>
-            <Link to="/mypage/booking">마이페이지(예약 내역)</Link>
+            <Link to="/mypage/myinfo">마이페이지(개인정보)</Link>
+            <Link to="/mypage/booking">예약 내역</Link>
             <Link to="/mypage/booking/details">예약 상세</Link>
             <Link to="/mypage/booking/review">리뷰 작성하기</Link>
-            <Link to="/mypage/myinfo">개인정보 변경</Link>
             <Link to="/mypage/myreview">내 리뷰 리스트</Link>
           </li>
           <li>
@@ -66,9 +66,14 @@ function Header() {
         </ul>
       </div>
       {/* 페이지 리스트 */}
-
+      <Link to="/mypage/booking" className="pl-5 hover:text-main">
+        예약 내역
+      </Link>
       <Link to="/cart" className="pl-5 hover:text-main">
         장바구니
+      </Link>
+      <Link to="/mypage/myinfo" className="pl-5 hover:text-main">
+        마이페이지
       </Link>
       <Link to="/login" className="pl-5 hover:text-main">
         로그인
