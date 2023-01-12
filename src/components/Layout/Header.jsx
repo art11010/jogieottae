@@ -13,9 +13,6 @@ function Header() {
             <img src={Logo} alt="조기어때" className="w-44" />
           </h1>
         </Link>
-        <Link to="/mypage/booking" className="pl-5 hover:text-main">
-          예약 내역
-        </Link>
         <Link to="/product/list" className="pl-5 hover:text-main">
           상품 리스트
         </Link>
