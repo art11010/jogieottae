@@ -11,8 +11,8 @@ export const BorderBoxEl = tw.div`
 `;
 
 function BorderBox(props) {
-  const { addclass } = props;
-  return <BorderBoxEl className={addclass}>{props.children}</BorderBoxEl>;
+  const { addClass } = props;
+  return <BorderBoxEl className={addClass}>{props.children}</BorderBoxEl>;
 }
 
 export default BorderBox;

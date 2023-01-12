@@ -11,10 +11,11 @@ import Join from './pages/Login/Join';
 import FindPW from './pages/Login/FindPW';
 import FindID from './pages/Login/FindID';
 // Mypage
-// import BookingList from './pages/Mypage/BookingList';
-// import BookingDetails from './pages/Mypage/BookingDetails';
-import Mypage from './pages/Mypage/Mypage';
-import ReviewView from './pages/Mypage/ReviewView';
+import UserLayout from './components/UserLayout';
+import MyInfo from './pages/Mypage/MyInfo';
+import MyReview from './pages/Mypage/MyReview';
+import BookingList from './pages/Mypage/BookingList';
+import BookingReview from './pages/Mypage/BookingReview';
 
 import Cart from './pages/Cart/Cart';
 import Payment from './pages/Payment/Payment';
@@ -31,18 +32,20 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path={'/'} element={<Main />} />
+          <Route path={'cart'} element={<Cart />} />
           <Route path={'login'} element={<Login />} />
+          <Route path={'login/join'} element={<Join />} />
           <Route path={'login/findpw'} element={<FindPW />} />
           <Route path={'login/findid'} element={<FindID />} />
-          <Route path={'login/join'} element={<Join />} />
-          <Route path={'mypage/mypage'} element={<Mypage />} />
-          <Route path={'mypage/review/view'} element={<ReviewView />} />
-          {/* <Route path={'mypage/booking'} element={<BookingList />} /> */}
-          {/* <Route path={'mypage/booking/details'} element={<BookingDetails />} /> */}
-          <Route path={'cart'} element={<Cart />} />
+          <Route path={'mypage'} element={<UserLayout />}>
+            <Route path={'myinfo'} element={<MyInfo />} />
+            <Route path={'myreview'} element={<MyReview />} />
+            <Route path={'booking'} element={<BookingList />} />
+            <Route path={'booking/review'} element={<BookingReview />} />
+          </Route>
           <Route path={'payment'} element={<Payment />} />
           <Route path={'complete'} element={<Complete />} />
-          <Route path={'product/list'} element={<ProductList />} />
+          <Route path={'product'} element={<ProductList />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

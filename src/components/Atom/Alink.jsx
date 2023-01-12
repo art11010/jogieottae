@@ -7,9 +7,9 @@ Button.defaultProps = {
 };
 
 function Button(props) {
-  const { to, addclass } = props;
+  const { to, addClass } = props;
   return (
-    <Link to={to} className={'btn btn-primary ' + addclass}>
+    <Link to={to} className={'btn btn-primary ' + addClass}>
       {props.children}
     </Link>
   );

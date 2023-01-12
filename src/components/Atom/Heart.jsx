@@ -1,9 +1,9 @@
 import React from 'react';
 
 function Heart(props) {
-  const { addclass } = props;
+  const { addClass } = props;
   return (
-    <label className={'swap ' + addclass}>
+    <label className={'swap ' + addClass}>
       <input type="checkbox" />
       {/* 빈하트 */}
       <svg

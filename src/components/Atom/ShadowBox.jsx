@@ -10,8 +10,8 @@ export const ShadowBoxEl = tw.div`
 `;
 
 function ShadowBox(props) {
-  const { addclass } = props;
-  return <ShadowBoxEl className={addclass}>{props.children}</ShadowBoxEl>;
+  const { addClass } = props;
+  return <ShadowBoxEl className={addClass}>{props.children}</ShadowBoxEl>;
 }
 
 export default ShadowBox;

@@ -1,9 +1,9 @@
 import React from 'react';
 
 function Button(props) {
-  const { addclass } = props;
+  const { addClass } = props;
   return (
-    <button className={'btn btn-primary ' + addclass}>{props.children}</button>
+    <button className={'btn btn-primary ' + addClass}>{props.children}</button>
   );
 }
 

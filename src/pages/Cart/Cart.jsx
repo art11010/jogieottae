@@ -41,13 +41,13 @@ function Cart() {
       <Title>장바구니</Title>
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
-          <TitleSub addclass="mb-2">숙소 정보</TitleSub>
+          <TitleSub addClass="mb-2">숙소 정보</TitleSub>
           <BookInfo roomdata={rommList} />
         </ShadowBox>
         <ShadowBox>
-          <TitleSub addclass="mb-2">금액 정보</TitleSub>
+          <TitleSub addClass="mb-2">금액 정보</TitleSub>
           <Price roomdata={rommList} />
-          <Button addclass="mt-3 btn-block">예약하기</Button>
+          <Button addClass="mt-3 btn-block">예약하기</Button>
         </ShadowBox>
       </div>
     </div>
