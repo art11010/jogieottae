@@ -17,7 +17,7 @@ function UserLayout() {
     <article className="flex justify-between min-h-fix container m-auto">
       <aside className="flex flex-col w-1/5 bg-secondary rounded-xl p-4">
         <Link to="/mypage/booking" className={currentPage('booking')}>
-          결제 내역
+          예약 내역
         </Link>
         <Link to="/mypage/myinfo" className={currentPage('myinfo')}>
           개인정보 변경

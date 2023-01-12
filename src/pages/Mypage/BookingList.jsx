@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Title, TitleSub, BorderBox, Button } from '../../components/Atom';
+import { Title, TitleSub, BorderBox } from '../../components/Atom';
 
 // assets
 import roomImg from '../../assets/img_room.jpeg';
@@ -35,7 +35,7 @@ function BookingList() {
       <div className="pb-2 flex items-center justify-between border-b border-gray-400">
         <TitleSub>{lst.paydata}</TitleSub>
         <Link to="/mypage/booking/details" className="text-main">
-          예약 내역 &gt;
+          상세보기 &gt;
         </Link>
       </div>
 
@@ -52,7 +52,12 @@ function BookingList() {
           <span className="block mt-3 text-xs">
             2023.02.20 00:00 전까지 <strong>무료취소</strong>
           </span>
-          <Button addClass="mt-5 w-full">후기 남기기</Button>
+          <Link
+            to="/mypage/booking/review"
+            className="btn btn-primary mt-5 w-full"
+          >
+            리뷰 작성하기
+          </Link>
         </div>
       </div>
     </BorderBox>
