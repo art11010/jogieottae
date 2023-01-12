@@ -13,18 +13,18 @@ export const InputCss = tw.input`
 Input.defaultProps = {
   type: 'text',
   _onChange: () => {},
-  addclass: '',
+  addClass: '',
 };
 function Input(props) {
   const { id, label, type, placeholder, value, _onChange } = props;
-  let { addclass } = props;
+  let { addClass } = props;
 
-  if (addclass) {
-    addclass = ' ' + addclass;
+  if (addClass) {
+    addClass = ' ' + addClass;
   }
   return (
     <>
-      <div className={'mt-3' + addclass}>
+      <div className={'mt-3' + addClass}>
         <label htmlFor={id}>{label}</label>
         <InputCss
           id={id}

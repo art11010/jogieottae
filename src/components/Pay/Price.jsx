@@ -4,7 +4,7 @@ import { TitleSub, BorderBox, Popup, Radio } from '../Atom';
 function Price(props) {
   const { roomdata } = props;
   const payMap = roomdata.map((lst, idx) => (
-    <BorderBox key={lst.roomName + idx} addclass="mt-5">
+    <BorderBox key={lst.roomName + idx} addClass="mt-5">
       <h5 className="text-xl font-bold">{lst.roomName}</h5>
       <p>
         <strong className="text-lg">{lst.price}</strong>원 x {lst.day}박
@@ -29,7 +29,7 @@ function Price(props) {
         쿠폰 할인 <strong className="text-lg">-5,000원</strong>
       </a>
       <Popup>
-        <TitleSub addclass="mb-2">쿠폰 할인</TitleSub>
+        <TitleSub addClass="mb-2">쿠폰 할인</TitleSub>
         {payMap}
       </Popup>
       <ul>

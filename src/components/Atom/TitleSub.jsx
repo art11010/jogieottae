@@ -8,9 +8,9 @@ export const TitleSubCss = tw.h4`
 `;
 
 function TitleSub(props) {
-  const { addclass, text } = props;
+  const { addClass, text } = props;
 
-  return <TitleSubCss className={addclass}>{props.children}</TitleSubCss>;
+  return <TitleSubCss className={addClass}>{props.children}</TitleSubCss>;
 }
 
 export default TitleSub;

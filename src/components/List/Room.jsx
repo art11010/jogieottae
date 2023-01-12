@@ -13,7 +13,7 @@ function Room() {
 
   const roomMap = roomArr.map((lst, idx) => (
     <li key={lst.title + idx} className="relative">
-      <Heart addclass="absolute top-2 right-2" />
+      <Heart addClass="absolute top-2 right-2" />
       <button>
         <img src={lst.imgSrc} alt="" className="rounded-xl" />
         <p className="mt-2 px-2 text-left">

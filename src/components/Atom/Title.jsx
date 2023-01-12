@@ -8,9 +8,9 @@ export const TitleCss = tw.h3`
 `;
 
 function Title(props) {
-  const { addclass } = props;
+  const { addClass } = props;
 
-  return <TitleCss className={addclass}>{props.children}</TitleCss>;
+  return <TitleCss className={addClass}>{props.children}</TitleCss>;
 }
 
 export default Title;
