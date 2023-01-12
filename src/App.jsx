@@ -15,6 +15,7 @@ import UserLayout from './components/UserLayout';
 import MyInfo from './pages/Mypage/MyInfo';
 import MyReview from './pages/Mypage/MyReview';
 import BookingList from './pages/Mypage/BookingList';
+import BookingDetails from './pages/Mypage/BookingDetails';
 import BookingReview from './pages/Mypage/BookingReview';
 
 import Cart from './pages/Cart/Cart';
@@ -41,6 +42,7 @@ function App() {
             <Route path={'myinfo'} element={<MyInfo />} />
             <Route path={'myreview'} element={<MyReview />} />
             <Route path={'booking'} element={<BookingList />} />
+            <Route path={'booking/details'} element={<BookingDetails />} />
             <Route path={'booking/review'} element={<BookingReview />} />
           </Route>
           <Route path={'payment'} element={<Payment />} />

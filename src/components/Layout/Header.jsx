@@ -36,6 +36,7 @@ function Header() {
               마이페이지
             </h2>
             <Link to="/mypage/booking">마이페이지</Link>
+            <Link to="/mypage/booking/details">예약 내역</Link>
             <Link to="/mypage/booking/review">리뷰 작성하기</Link>
             <Link to="/mypage/myinfo">개인정보 변경</Link>
             <Link to="/mypage/myreview">내 리뷰 리스트</Link>
