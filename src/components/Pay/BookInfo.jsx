@@ -11,11 +11,11 @@ function Pay(props) {
       key={lst.roomName + idx}
       className="flex flex-wrap items-start py-5 border-t border-gray-400"
     >
-      <label class="block mr-3">
+      <label className="block mr-3">
         <input
           type="checkbox"
           checked="checked"
-          class="checkbox checkbox-primary"
+          className="checkbox checkbox-primary"
         />
       </label>
       <img src={roomImg} alt="" className="w-40 rounded-xl" />

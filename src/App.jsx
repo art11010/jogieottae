@@ -13,15 +13,17 @@ import FindID from './pages/Login/FindID';
 // Mypage
 import UserLayout from './components/UserLayout';
 import MyInfo from './pages/Mypage/MyInfo';
-import MyReview from './pages/Mypage/MyReview';
 import BookingList from './pages/Mypage/BookingList';
 import BookingDetails from './pages/Mypage/BookingDetails';
+import BookingCancel from './pages/Mypage/BookingCancel';
 import BookingReview from './pages/Mypage/BookingReview';
+import MyReview from './pages/Mypage/MyReview';
+
+import ProductList from './pages/Product/List';
 
 import Cart from './pages/Cart/Cart';
 import Payment from './pages/Payment/Payment';
 import Complete from './pages/Complete/Complete';
-import ProductList from './pages/Product/List';
 
 // style
 import CommonStyle from './style/Common.style';
@@ -40,10 +42,11 @@ function App() {
           <Route path={'login/findid'} element={<FindID />} />
           <Route path={'mypage'} element={<UserLayout />}>
             <Route path={'myinfo'} element={<MyInfo />} />
-            <Route path={'myreview'} element={<MyReview />} />
             <Route path={'booking'} element={<BookingList />} />
             <Route path={'booking/details'} element={<BookingDetails />} />
+            <Route path={'booking/cancel'} element={<BookingCancel />} />
             <Route path={'booking/review'} element={<BookingReview />} />
+            <Route path={'myreview'} element={<MyReview />} />
           </Route>
           <Route path={'payment'} element={<Payment />} />
           <Route path={'complete'} element={<Complete />} />
