@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Button, TitleSub } from '../../../components/Atom';
+import { Button, TitleSub } from '../Atom';
 
 // assets
-import icoPay from '../../../assets/ico_comp-pay.png';
+import icoPay from '../../assets/ico_comp-pay.png';
 
-function CompPay() {
+function Payment() {
   return (
     <div className="absolute bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2">
       <TitleSub addClass="pb-5">예약이 완료되었습니다.</TitleSub>
@@ -21,4 +21,4 @@ function CompPay() {
   );
 }
 
-export default CompPay;
+export default Payment;

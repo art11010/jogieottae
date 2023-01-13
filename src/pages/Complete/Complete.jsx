@@ -2,17 +2,17 @@ import React from 'react';
 
 import { ShadowBox } from '../../components/Atom';
 
-import CompPay from './type/CompPay';
-import CompJoin from './type/CompJoin';
+import Join from '../../components/Complete/Join';
+import Payment from '../../components/Complete/Payment';
 
 function Complete() {
   return (
     <>
       <ShadowBox addClass="relative m-auto w-1/3 pt-0 px-0 pb-1/3 rounded-full text-center">
-        <CompPay />
+        <Join />
       </ShadowBox>
       <ShadowBox addClass="relative m-auto w-1/3 pt-0 px-0 pb-1/3 rounded-full text-center">
-        <CompJoin />
+        <Payment />
       </ShadowBox>
     </>
   );

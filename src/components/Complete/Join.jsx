@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Alink, Button, TitleSub } from '../../../components/Atom';
+import { Alink, Button, TitleSub } from '../Atom';
 
 // assets
-import icoJoin from '../../../assets/ico_comp-join.png';
+import icoJoin from '../../assets/ico_comp-join.png';
 
-function CompPay() {
+function Join() {
   return (
     <div className="absolute bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2">
       <TitleSub addClass="pb-5">가입이 완료되었습니다.</TitleSub>
@@ -25,4 +25,4 @@ function CompPay() {
   );
 }
 
-export default CompPay;
+export default Join;

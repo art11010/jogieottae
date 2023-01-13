@@ -8,16 +8,15 @@ import {
   ShadowBox,
 } from '../../components/Atom';
 
-// Pay
-import BookInfo from '../../components/Pay/BookInfo';
-import Person from '../../components/Pay/Person';
-import Price from '../../components/Pay/Price';
+import InfoPerson from '../../components/Infos/InfoPerson';
+import InfoBook from '../../components/Infos/InfoBook';
+import InfoPrice from '../../components/Infos/InfoPrice';
 
 // assets
 import roomImg from '../../assets/img_room.jpeg';
 
 function Payment() {
-  const rommList = [
+  const booklist = [
     {
       imgSrc: roomImg,
       roomName: '마포 신라스테이',
@@ -50,13 +49,13 @@ function Payment() {
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약자 정보</TitleSub>
-          <Person />
+          <InfoPerson />
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <BookInfo roomdata={rommList} />
+          <InfoBook booklist={booklist} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
-          <Price roomdata={rommList} />
+          <InfoPrice booklist={booklist} />
           <div className="mt-5 px-5 border-t border-dashed border-gray-400">
             <Radio id="payType2" name="payType" label="카카오페이" checked />
             <Radio id="payType1" name="payType" label="카드 결제" />
