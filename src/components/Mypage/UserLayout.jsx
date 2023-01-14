@@ -7,7 +7,7 @@ function UserLayout() {
   // 현재 페이지 표시하는 함수
   function currentPage(current) {
     const highLight = 'bg-main text-white',
-      listStyle = 'p-5 text-lg font-bold rounded-lg';
+          listStyle = 'p-5 text-lg font-bold rounded-lg';
     return `${listStyle} ${
       pathName.includes(current) ? highLight : 'hover:text-main'
     }`;
@@ -21,9 +21,6 @@ function UserLayout() {
         </Link>
         <Link to="/mypage/booking" className={currentPage('booking')}>
           예약 내역
-        </Link>
-        <Link to="/mypage/myreview" className={currentPage('myreview')}>
-          내가 쓴 리뷰
         </Link>
       </aside>
       <section className="w-3/4 pt-50 pb-50">
