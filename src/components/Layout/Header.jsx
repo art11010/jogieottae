@@ -20,7 +20,7 @@ function Header() {
         </label>
         <ul
           tabIndex={0}
-          className="dropdown-content menu flex-row p-2 shadow bg-base-100 rounded-box w-500"
+          className="dropdown-content menu flex-row p-2 shadow bg-base-100 rounded-box w-500 grid grid-cols-3"
         >
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
@@ -63,6 +63,16 @@ function Header() {
             <Link to="/complete" className="pl-5 hover:text-main">
               예약완료 (가입, 탈퇴)
             </Link>
+          </li>
+          <li>
+            <h2 className="font-bold text-lg text-main pointer-events-none">
+              관리자
+            </h2>
+            <Link to="/admin">로그인</Link>
+            <Link to="/admin/join">회원가입</Link>
+            <Link to="/admin/findid">아이디 찾기</Link>
+            <Link to="/admin/findpw">비밀번호 찾기</Link>
+            <Link to="/admin/accm">숙박 시설 관리</Link>
           </li>
         </ul>
       </div>
