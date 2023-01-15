@@ -1,19 +1,22 @@
 import React from 'react';
 
 import { Title } from '../../components/Atom';
-import { Category, Place, Room } from '../../components/List';
-import Visual from '../../components/Main/Visual';
+
+import MainVisual from '../../components/Main/MainVisual';
+import ListCategory from '../../components/List/ListCategory';
+import ListPlace from '../../components/List/ListPlace';
+import ListProduct from '../../components/List/ListProduct';
 
 function Main() {
   return (
     <div className="container">
-      <Visual />
+      <MainVisual />
       <Title addClass="mt-20">카테고리</Title>
-      <Category />
+      <ListCategory />
       <Title addClass="mt-20">국내 인기 여행지</Title>
-      <Place />
+      <ListPlace />
       <Title addClass="mt-20">속세를 벗어난 숙소</Title>
-      <Room />
+      <ListProduct />
     </div>
   );
 }

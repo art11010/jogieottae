@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Title, TitleSub, BorderBox } from '../../components/Atom';
-import List from '../../components/Mypage/List';
+import { Title } from '../../components/Atom';
+import BookingListBox from '../../components/Mypage/BookingListBox';
+
 // assets
 import roomImg from '../../assets/img_room.jpeg';
 
@@ -33,7 +33,7 @@ function BookingList() {
   return (
     <>
       <Title>예약 내역</Title>
-      <List booklist={booklist} />
+      <BookingListBox booklist={booklist} />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from '../Atom';
 
-function Pay() {
+function PayPerson() {
   return (
     <div className="pt-5 pb-10 border-t border-gray-400">
       <Input id="name" label="이름" value="김말똥" />
@@ -10,4 +10,4 @@ function Pay() {
   );
 }
 
-export default Pay;
+export default PayPerson;

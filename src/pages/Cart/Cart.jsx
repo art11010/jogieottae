@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Button, Title, TitleSub, ShadowBox } from '../../components/Atom';
+import { Alink, Title, TitleSub, ShadowBox } from '../../components/Atom';
 
-import InfoBook from '../../components/Infos/InfoBook';
-import InfoPrice from '../../components/Infos/InfoPrice';
+import PayBook from '../../components/Payment/PayBook';
+import PayPrice from '../../components/Payment/PayPrice';
 
 // assets
 import roomImg from '../../assets/img_room.jpeg';
@@ -40,13 +40,15 @@ function Cart() {
       <Title>장바구니</Title>
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
-          <TitleSub addClass="mb-2">숙소 정보</TitleSub>
-          <InfoBook booklist={booklist} />
+          <TitleSub addClass="mb-2">예약 정보</TitleSub>
+          <PayBook booklist={booklist} cart={true} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
-          <InfoPrice booklist={booklist} />
-          <Button addClass="mt-3 btn-block">예약하기</Button>
+          <PayPrice booklist={booklist} cart={true} />
+          <Alink to="/payment" addClass="mt-5 btn-block">
+            예약하기
+          </Alink>
         </ShadowBox>
       </div>
     </div>

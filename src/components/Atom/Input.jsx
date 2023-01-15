@@ -15,6 +15,7 @@ Input.defaultProps = {
   _onChange: () => {},
   addClass: '',
 };
+
 function Input(props) {
   const { id, label, type, placeholder, value, _onChange } = props;
   let { addClass } = props;
