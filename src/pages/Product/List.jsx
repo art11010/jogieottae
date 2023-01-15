@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, Title, Input, ShadowBox } from '../../components/Atom';
 import { Room } from '../../components/List';
-import ProductMap from './Map';
+import ProductMap from '../../components/Atom/Map';
 
 function ProductList() {
   return (
@@ -22,7 +22,7 @@ function ProductList() {
       <div className="grid grid-cols-2 mt-20 gap-x-5">
         <Title addClass="mb-5 col-span-2">지금 갈 수 있는 곳</Title>
         <Room />
-        <ProductMap />
+        <ProductMap list="https://29da5bf8-9078-4627-aab5-82e2ea49e288.mock.pstmn.io/accm/product" />
       </div>
     </div>
   );

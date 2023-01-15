@@ -25,16 +25,16 @@ export const loginLink = styled.span`
         text-main
       `}
     }
+    &::after{
+      content: '|';
+      display: inline-block;
+      margin: 0 10px;
+      color: #999;
+      font-size: 14px;
+      font-weight: 300;
+    }
+    &:last-child::after{display:none;}
   }
-  &::after{
-    content: '|';
-    display: inline-block;
-    margin: 0 10px;
-    color: #999;
-    font-size: 14px;
-    font-weight: 300;
-  }
-  &:last-child::after{display:none;}
 `;
 
 export const titleDesc = styled.p`
