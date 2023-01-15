@@ -5,7 +5,7 @@ import { Button, Input, Title, ShadowBox } from '../Atom';
 // assets
 import kv from '../../assets/main_kv.jpeg';
 
-function Visual() {
+function MainVisual() {
   return (
     <div className="relative">
       <img src={kv} alt="" className="w-3/4 rounded-3xl" />
@@ -23,4 +23,4 @@ function Visual() {
   );
 }
 
-export default Visual;
+export default MainVisual;

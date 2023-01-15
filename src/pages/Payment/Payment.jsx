@@ -1,16 +1,16 @@
 import React from 'react';
 
 import {
-  Button,
+  Alink,
   Title,
   TitleSub,
   Radio,
   ShadowBox,
 } from '../../components/Atom';
 
-import InfoPerson from '../../components/Infos/InfoPerson';
-import InfoBook from '../../components/Infos/InfoBook';
-import InfoPrice from '../../components/Infos/InfoPrice';
+import PayPerson from '../../components/Payment/PayPerson';
+import PayBook from '../../components/Payment/PayBook';
+import PayPrice from '../../components/Payment/PayPrice';
 
 // assets
 import roomImg from '../../assets/img_room.jpeg';
@@ -49,18 +49,24 @@ function Payment() {
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약자 정보</TitleSub>
-          <InfoPerson />
+          <PayPerson />
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <InfoBook booklist={booklist} />
+          <PayBook booklist={booklist} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
-          <InfoPrice booklist={booklist} />
+          <PayPrice booklist={booklist} />
           <div className="mt-5 px-5 border-t border-dashed border-gray-400">
-            <Radio id="payType2" name="payType" label="카카오페이" checked />
-            <Radio id="payType1" name="payType" label="카드 결제" />
+            <Radio id="payType2" name="payType" checked>
+              카카오페이
+            </Radio>
+            <Radio id="payType1" name="payType">
+              적용 안함
+            </Radio>
           </div>
-          <Button addClass="mt-3 btn-block">결제하기</Button>
+          <Alink to="/payment/complete" addClass="mt-5 btn-block">
+            결제하기
+          </Alink>
         </ShadowBox>
       </div>
     </div>

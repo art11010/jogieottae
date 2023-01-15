@@ -28,7 +28,7 @@ function MyinfoForm() {
           <Button addClass="w-2/5 mt-3">변경</Button>
         </div>
         <div className="flex justify-end mt-6 border-y border-b-0">
-          <Link to="./delete" className="btn btn-secondary-focus mt-6">
+          <Link to="./delete" className="btn btn-secondary mt-6">
             회원 탈퇴
           </Link>
         </div>

@@ -3,7 +3,7 @@ import React from 'react';
 // assets
 import ctgyIco from '../../assets/ico_home.png';
 
-function Category() {
+function ListCategory() {
   const ctgyArr = [
     { title: '모텔', imgSrc: ctgyIco },
     { title: '호텔', imgSrc: ctgyIco },
@@ -23,4 +23,4 @@ function Category() {
   return <ul className="mt-2 grid grid-cols-4 gap-4">{ctgyMap}</ul>;
 }
 
-export default Category;
+export default ListCategory;

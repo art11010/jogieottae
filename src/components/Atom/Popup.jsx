@@ -1,32 +1,36 @@
 import React from 'react';
 
+// defaultProps
+Popup.defaultProps = {
+  closeBtn: false,
+};
+
 function Popup(props) {
+  const { addClass, closeBtn } = props;
+  console.log(closeBtn);
   return (
-    <div className="modal" id="my-modal-2">
+    <div className={'modal ' + addClass} id="layer-popup">
       <div className="modal-box relative">
-        <a href="#" className="absolute top-5 right-5">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </a>
-        {props.children}
-        <div className="modal-action">
-          <a href="#" className="btn btn-primary">
-            적용하기
+        {closeBtn && (
+          <a href="#" className="absolute top-5 right-5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </a>
-        </div>
+        )}
+        {props.children}
       </div>
     </div>
   );

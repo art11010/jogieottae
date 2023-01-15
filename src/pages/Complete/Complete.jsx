@@ -1,18 +1,15 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { ShadowBox } from '../../components/Atom';
-
-import Join from '../../components/Complete/Join';
-import Payment from '../../components/Complete/Payment';
+import CompleteType from '../../components/Complete/CompleteType';
 
 function Complete() {
+  const pathName = useLocation().pathname.split('/')[1];
   return (
     <>
       <ShadowBox addClass="relative m-auto w-1/3 pt-0 px-0 pb-1/3 rounded-full text-center">
-        <Join />
-      </ShadowBox>
-      <ShadowBox addClass="relative m-auto w-1/3 pt-0 px-0 pb-1/3 rounded-full text-center">
-        <Payment />
+        <CompleteType type={pathName} />
       </ShadowBox>
     </>
   );

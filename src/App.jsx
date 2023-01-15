@@ -58,7 +58,9 @@ function App() {
             <Route path={'booking/review'} element={<BookingReview />} />
           </Route>
           <Route path={'payment'} element={<Payment />} />
-          <Route path={'complete'} element={<Complete />} />
+          <Route path={'payment/complete'} element={<Complete />} />
+          <Route path={'join/complete'} element={<Complete />} />
+          <Route path={'delete/complete'} element={<Complete />} />
           <Route path={'product'} element={<ProductList />}></Route>
         </Route>
         <Route element={<AdminLayout />}>
