@@ -5,7 +5,7 @@ import { TitleSub, BorderBox } from '../Atom';
 // assets
 import roomImg from '../../assets/img_room.jpeg';
 
-function List(props) {
+function BookingListBox(props) {
   const { booklist } = props;
 
   const booklistMap = booklist.map((lst, idx) => (
@@ -44,4 +44,4 @@ function List(props) {
   return <div className="mt-5 grid grid-cols-3 gap-5">{booklistMap}</div>;
 }
 
-export default List;
+export default BookingListBox;

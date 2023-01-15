@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Place() {
+function ListPlace() {
   const placeArr = [
     { title: '제주도' },
     { title: '부산' },
@@ -18,4 +18,4 @@ function Place() {
 
   return <ul className="mt-2 grid grid-cols-4 gap-4">{placeMap}</ul>;
 }
-export default Place;
+export default ListPlace;

@@ -52,6 +52,20 @@ function Header() {
           </li>
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
+              완료
+            </h2>
+            <Link to="/payment/complete" className="pl-5 hover:text-main">
+              예약 완료
+            </Link>
+            <Link to="/join/complete" className="pl-5 hover:text-main">
+              가입 완료
+            </Link>
+            <Link to="/delete/complete" className="pl-5 hover:text-main">
+              탈퇴 완료
+            </Link>
+          </li>
+          <li>
+            <h2 className="font-bold text-lg text-main pointer-events-none">
               예약
             </h2>
             <Link to="/cart" className="pl-5 hover:text-main">
@@ -59,9 +73,6 @@ function Header() {
             </Link>
             <Link to="/payment" className="pl-5 hover:text-main">
               예약하기
-            </Link>
-            <Link to="/complete" className="pl-5 hover:text-main">
-              예약완료 (가입, 탈퇴)
             </Link>
           </li>
           <li>
