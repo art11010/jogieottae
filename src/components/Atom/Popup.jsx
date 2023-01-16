@@ -7,7 +7,7 @@ Popup.defaultProps = {
 
 function Popup(props) {
   const { addClass, closeBtn } = props;
-  console.log(closeBtn);
+
   return (
     <div className={'modal ' + addClass} id="layer-popup">
       <div className="modal-box relative">
