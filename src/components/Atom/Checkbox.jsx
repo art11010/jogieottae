@@ -1,6 +1,7 @@
 import React from 'react';
 
-function Checkbox() {
+function Checkbox(props) {
+  const { checked } = props;
   return (
     <label className="block mr-3">
       <input
