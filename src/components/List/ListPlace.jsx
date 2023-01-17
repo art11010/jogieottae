@@ -8,10 +8,10 @@ function ListPlace() {
     { title: '대전' },
   ];
 
-  const placeMap = placeArr.map((lst, idx) => (
-    <li key={lst.title + idx}>
+  const placeMap = placeArr.map((item, idx) => (
+    <li key={item.title + idx}>
       <button className="w-full py-5 btn-secondary rounded-full">
-        {lst.title}
+        {item.title}
       </button>
     </li>
   ));
