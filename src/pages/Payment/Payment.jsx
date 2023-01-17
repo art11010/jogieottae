@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Alink,
   Title,
@@ -9,8 +8,9 @@ import {
 } from '../../components/Atom';
 
 import PayPerson from '../../components/Payment/PayPerson';
-import PayBook from '../../components/Payment/PayBook';
+import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
+import PayPopup from '../../components/Payment/PayPopup';
 
 // assets
 import roomImg from '../../assets/img_room.jpeg';
@@ -51,7 +51,7 @@ function Payment() {
           <TitleSub addClass="mb-2">예약자 정보</TitleSub>
           <PayPerson />
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <PayBook booklist={booklist} />
+          <PayProduct booklist={booklist} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
@@ -69,6 +69,7 @@ function Payment() {
           </Alink>
         </ShadowBox>
       </div>
+      <PayPopup booklist={booklist} />
     </div>
   );
 }

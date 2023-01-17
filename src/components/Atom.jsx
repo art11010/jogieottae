@@ -9,6 +9,7 @@ import ShadowBox from './Atom/ShadowBox';
 import BorderBox from './Atom/BorderBox';
 import Popup from './Atom/Popup';
 import PopupBtn from './Atom/PopupBtn';
+import CloseBtn from './Atom/CloseBtn';
 import Heart from './Atom/Heart';
 
 export {
@@ -23,5 +24,6 @@ export {
   BorderBox,
   Popup,
   PopupBtn,
+  CloseBtn,
   Heart,
 };

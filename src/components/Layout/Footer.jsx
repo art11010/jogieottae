@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="mt-10 py-5 border-t border-gray-400">
+    <footer className="mt-20 py-5 border-t border-gray-400">
       <div className="container text-gray-500">
         <b>고객행복센터 1670-0000</b> | 오전 9시 - 새벽 3시
         <br />

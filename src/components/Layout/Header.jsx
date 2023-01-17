@@ -83,7 +83,7 @@ function Header() {
           </li>
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
-              예약
+              공지사항
             </h2>
             <Link to="/notice" className="pl-5 hover:text-main">
               공지사항
