@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { Alink, Title, TitleSub, ShadowBox } from '../../components/Atom';
 
-import PayBook from '../../components/Payment/PayBook';
+import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
 
 // assets
@@ -41,7 +40,7 @@ function Cart() {
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <PayBook booklist={booklist} cart={true} />
+          <PayProduct booklist={booklist} cart={true} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>

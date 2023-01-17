@@ -1,18 +1,23 @@
 import React from 'react';
-import { Checkbox } from '../Atom';
+import { Checkbox, CloseBtn } from '../Atom';
 
 // assets
 import roomImg from '../../assets/img_room.jpeg';
 
-function PayBook(props) {
+function PayProduct(props) {
   const { booklist, cart } = props;
 
   const booklistMap = booklist.map((item, idx) => (
     <div
       key={item.roomName + idx}
-      className="flex flex-wrap items-start py-5 border-t border-gray-400"
+      className="flex flex-wrap relative items-start py-5 border-t border-gray-400"
     >
-      {cart && <Checkbox />}
+      {cart && (
+        <>
+          <Checkbox />
+          <CloseBtn addClass="absolute top-2 right-0" />
+        </>
+      )}
       <img src={roomImg} alt="" className="w-40 rounded-xl" />
       <div className="ml-5">
         <h5 className="mb-2 text-xl font-bold">{item.roomName}</h5>
@@ -38,4 +43,4 @@ function PayBook(props) {
   return <>{booklistMap}</>;
 }
 
-export default PayBook;
+export default PayProduct;
