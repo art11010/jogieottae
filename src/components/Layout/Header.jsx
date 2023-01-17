@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { cartActions } from '../../redux/reducers/cartReducer';
 // assets
 import Logo from '../../assets/logo.png';
 
 function Header() {
+  const cartNum = useSelector((state) => {
+    return state.cart.num;
+  });
+
+  const dispatch = useDispatch();
   return (
-    <header className="mb-10 container flex items-center py-5">
+    <header className="mb-10 container flex items-center py-5 relative">
       <Link to="/" className="mr-auto">
         <h1>
           <img src={Logo} alt="조기어때" className="w-44" />
@@ -44,14 +50,6 @@ function Header() {
           </li>
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
-              리스트
-            </h2>
-            <Link to="/product" className="pl-5 hover:text-main">
-              상품 리스트
-            </Link>
-          </li>
-          <li>
-            <h2 className="font-bold text-lg text-main pointer-events-none">
               완료
             </h2>
             <Link to="/payment/complete" className="pl-5 hover:text-main">
@@ -62,6 +60,14 @@ function Header() {
             </Link>
             <Link to="/delete/complete" className="pl-5 hover:text-main">
               탈퇴 완료
+            </Link>
+          </li>
+          <li>
+            <h2 className="font-bold text-lg text-main pointer-events-none">
+              리스트
+            </h2>
+            <Link to="/product" className="pl-5 hover:text-main">
+              상품 리스트
             </Link>
           </li>
           <li>
@@ -77,6 +83,14 @@ function Header() {
           </li>
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
+              예약
+            </h2>
+            <Link to="/notice" className="pl-5 hover:text-main">
+              공지사항
+            </Link>
+          </li>
+          <li>
+            <h2 className="font-bold text-lg text-main pointer-events-none">
               관리자
             </h2>
             <Link to="/admin">로그인</Link>
@@ -88,18 +102,37 @@ function Header() {
         </ul>
       </div>
       {/* 페이지 리스트 */}
+      <Link to="/notice" className="pl-5 hover:text-main">
+        공지사항
+      </Link>
       <Link to="/mypage/booking" className="pl-5 hover:text-main">
         예약 내역
       </Link>
-      <Link to="/cart" className="pl-5 hover:text-main">
-        장바구니
-      </Link>
+      <div className="indicator">
+        <span className="indicator-item badge badge-primary items-baseline -top-1 -right-1">
+          {cartNum}
+        </span>
+        <Link to="/cart" className="pl-5 hover:text-main">
+          장바구니
+        </Link>
+      </div>
       <Link to="/mypage/myinfo" className="pl-5 hover:text-main">
         마이페이지
       </Link>
       <Link to="/login" className="pl-5 hover:text-main">
         로그인
       </Link>
+
+      {/* cart add btn, 지울 때 header - relative도 같이 */}
+      <button
+        className="hover:text-main absolute top-16 right-0"
+        onClick={() => {
+          dispatch(cartActions.cartIncrement());
+        }}
+      >
+        test cart add
+      </button>
+      {/* cart add btn */}
     </header>
   );
 }

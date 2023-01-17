@@ -11,15 +11,15 @@ function ListProduct() {
     { title: '베를린, 독일', date: '2월 25일 ~ 3월 3일', imgSrc: roomImg },
   ];
 
-  const productMap = productArr.map((lst, idx) => (
-    <li key={lst.title + idx} className="relative">
+  const productMap = productArr.map((item, idx) => (
+    <li key={item.title + idx} className="relative">
       <Heart addClass="absolute top-2 right-2" />
       <button>
-        <img src={lst.imgSrc} alt="" className="rounded-xl" />
+        <img src={item.imgSrc} alt="" className="rounded-xl" />
         <p className="mt-2 px-2 text-left">
-          {lst.title}
+          {item.title}
           <br />
-          {lst.date}
+          {item.date}
           <br />
           <span>
             <b>₩289,314</b> /박

@@ -18,13 +18,14 @@ import BookingDetails from './pages/Mypage/BookingDetails';
 import BookingCancel from './pages/Mypage/BookingCancel';
 import BookingReview from './pages/Mypage/BookingReview';
 import UserDelete from './pages/Mypage/UserDelete';
-
+// Product
 import ProductList from './pages/Product/List';
-
+// Pay
 import Cart from './pages/Cart/Cart';
 import Payment from './pages/Payment/Payment';
 import Complete from './pages/Complete/Complete';
-
+// Notice
+import Notice from './pages/Notice/Notice';
 // Admin
 import AdminLayout from './components/AdminLayout';
 import AdminSection from './components/Admin/AdminSection';
@@ -42,6 +43,7 @@ function App() {
     <BrowserRouter>
       <CommonStyle />
       <Routes>
+        {/* Layout */}
         <Route element={<Layout />}>
           <Route path={'/'} element={<Main />} />
           <Route path={'cart'} element={<Cart />} />
@@ -61,8 +63,10 @@ function App() {
           <Route path={'payment/complete'} element={<Complete />} />
           <Route path={'join/complete'} element={<Complete />} />
           <Route path={'delete/complete'} element={<Complete />} />
-          <Route path={'product'} element={<ProductList />}></Route>
+          <Route path={'product'} element={<ProductList />} />
+          <Route path={'notice'} element={<Notice />} />
         </Route>
+        {/* AdminLayout */}
         <Route element={<AdminLayout />}>
           <Route path={'admin'} element={<Admin />} />
           <Route path={'admin/join'} element={<AdminJoin />} />

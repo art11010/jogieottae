@@ -3,12 +3,12 @@ import { TitleSub, BorderBox, Popup, PopupBtn, Radio } from '../Atom';
 
 function PayPrice(props) {
   const { booklist, cart } = props;
-  const booklistMap = booklist.map((lst, idx) => (
-    <BorderBox key={lst.roomName + idx} addClass="mt-5">
-      <h5 className="text-xl font-bold">{lst.roomName}</h5>
+  const booklistMap = booklist.map((item, idx) => (
+    <BorderBox key={item.roomName + idx} addClass="mt-5">
+      <h5 className="text-xl font-bold">{item.roomName}</h5>
       <p>
-        <strong className="text-lg">{lst.price}</strong>원 x {lst.day}박
-        <br /> {lst.date}, {lst.num}명
+        <strong className="text-lg">{item.price}</strong>원 x {item.day}박
+        <br /> {item.date}, {item.num}명
       </p>
       <div className="mt-3 pt-2 border-t border-gray-400">
         <Radio id={'coupon' + idx} name={'coupon' + idx}>
