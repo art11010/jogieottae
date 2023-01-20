@@ -1,9 +1,9 @@
 import React from 'react';
 
-function List() {
+function List(){
   return (
     <>
-      <div>숙박 목록</div>
+      <div>숙박 dd목록</div>
     </>
   );
 }

@@ -1,0 +1,47 @@
+{
+    "code": "SUCCESS_CODE",
+    "description": "성공적으로 작업을 수행 했습니다.",
+    "data": {
+      "content": [
+        {
+          "id": 1,
+          "sellerId": 1,
+          "accomodationName": "테스트용 숙박",
+          "addr": "서울",
+          "price": 1000
+        },
+        {
+          "id": 2,
+          "sellerId": 1,
+          "accomodationName": "테스트용 숙박2",
+          "addr": "강원",
+          "price": 2000
+        }
+      ],
+      "pageable": {
+        "sort": {
+          "sorted": false,
+          "unsorted": true,
+          "empty": true
+        },
+        "pageNumber": 0,
+        "pageSize": 15,
+        "offset": 0,
+        "unpaged": false,
+        "paged": true
+      },
+      "totalElements": 1,
+      "last": true,
+      "totalPages": 10,
+      "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+      },
+      "numberOfElements": 1,
+      "first": true,
+      "size": 15,
+      "number": 0,
+      "empty": false
+    }
+  }

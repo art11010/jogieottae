@@ -1,0 +1,19 @@
+[
+    {
+        "숙박 시설 관리": {
+          "숙박 시설 목록": "/admin/seller/accm",
+          "숙박 시설 상세": "/admin/seller/accm/detail",
+          "숙박 시설 등록": "/admin/seller/accm/add"
+        },
+        "레저 시설 관리": {
+          "레저 시설 목록": "/admin/seller/leisure",
+          "레저 시설 상세": "/admin/seller/leisure/detail",
+          "레저 시설 등록": "/admin/seller/leisure/add"
+        },
+        "블랙리스트 관리": {
+          "블랙리스트 목록": "/admin/seller/blacklist",
+          "블랙리스트 상세": "/admin/seller/blacklist/detail",
+          "블랙리스트 등록": "/admin/seller/blacklist/add"
+        }
+    }
+]
