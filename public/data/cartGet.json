@@ -1,0 +1,19 @@
+{
+  "code": "SUCCESS_CODE",
+  "data": [
+    {
+      "leisureOrderItemId": 0,
+      "addr": "string",
+      "lat": 0,
+      "leisureName": "string",
+      "lon": 0,
+      "persons": 0,
+      "pictureUrl": "string",
+      "price": 0,
+      "sellerId": 0,
+      "startAt": "2023-01-19T00:00:00.000Z",
+      "endAt": "2023-01-19T00:00:00.000Z"
+    }
+  ],
+  "description": "성공"
+}
