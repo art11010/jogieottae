@@ -27,13 +27,18 @@ import Complete from './pages/Complete/Complete';
 // Notice
 import Notice from './pages/Notice/Notice';
 // Admin
-import AdminLayout from './components/AdminLayout';
+import AdminLayout from './components/Admin/AdminLayout';
 import AdminSection from './components/Admin/AdminSection';
+// manager
 import Admin from './pages/Admin/Login/Login';
 import AdminJoin from './pages/Admin/Login/Join';
 import AdminFindPW from './pages/Admin/Login/FindPW';
 import AdminFindID from './pages/Admin/Login/FindID';
-import AdminUserList from './pages/Admin/User/List';
+import ManagerUserList from './pages/Admin/Manager/User/List';
+// seller
+import SellerAccmList from './pages/Admin/Seller/Accm/List';
+import SellerAccmDetail from './pages/Admin/Seller/Accm/Detail';
+import SellerAccmAdd from './pages/Admin/Seller/Accm/Add';
 
 function Router() {
   return (
@@ -68,7 +73,14 @@ function Router() {
         <Route path={'admin/findpw'} element={<AdminFindPW />} />
         <Route path={'admin/findid'} element={<AdminFindID />} />
         <Route element={<AdminSection />}>
-          <Route path={'admin/accm'} element={<AdminUserList />}></Route>
+          {/* 관리자 */}
+          <Route path={'admin/manager'} element={<Admin />} />
+          <Route path={'admin/manager/user'} element={<ManagerUserList />} />
+          {/* 셀러 */}
+          <Route path={'admin/seller'} element={<Admin />} />
+          <Route path={'admin/seller/accm'} element={<SellerAccmList />} />
+          <Route path={'admin/seller/accm/detail'} element={<SellerAccmDetail />} />
+          <Route path={'admin/seller/accm/add'} element={<SellerAccmAdd />} />
         </Route>
       </Route>
     </Routes>

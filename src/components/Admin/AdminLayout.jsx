@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Layout
-import Header from './Admin/Header';
+import Header from './Header';
 import { Outlet } from 'react-router-dom';
 
 function AdminLayout() {

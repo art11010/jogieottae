@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         main: '#ff4182',
+        sub: '#f8dbe5',
         kakao: '#FEE500',
       },
       boxShadow: {
