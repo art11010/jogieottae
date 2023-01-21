@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../redux/reducers/cartReducer';
@@ -6,7 +5,7 @@ import { cartActions } from '../../redux/reducers/cartReducer';
 import Logo from '../../assets/logo.png';
 
 function Header() {
-  const cartNum = useSelector((state) => {
+  const cartNum = useSelector((state: { cart: { num: number } }) => {
     return state.cart.num;
   });
 
