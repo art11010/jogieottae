@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 // style
 import tw from 'tailwind-styled-components';
@@ -9,7 +9,12 @@ export const ShadowBoxEl = tw.div`
   shadow-default
 `;
 
-function ShadowBox(props) {
+interface Props {
+  children: ReactNode;
+  addClass?: string;
+}
+
+function ShadowBox(props: Props) {
   const { addClass } = props;
   return <ShadowBoxEl className={addClass}>{props.children}</ShadowBoxEl>;
 }

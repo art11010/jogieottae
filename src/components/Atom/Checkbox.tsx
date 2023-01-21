@@ -1,6 +1,8 @@
-import React from 'react';
+interface Props {
+  checked: boolean;
+}
 
-function Checkbox(props) {
+function Checkbox(props: Props) {
   const { checked } = props;
   return (
     <label className="block mr-3">

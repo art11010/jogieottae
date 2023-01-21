@@ -1,19 +1,38 @@
 {
   "code": "SUCCESS_CODE",
-  "data": [
-    {
-      "leisureOrderItemId": 0,
-      "addr": "string",
-      "lat": 0,
-      "leisureName": "string",
-      "lon": 0,
-      "persons": 0,
-      "pictureUrl": "string",
-      "price": 0,
-      "sellerId": 0,
-      "startAt": "2023-01-19T00:00:00.000Z",
-      "endAt": "2023-01-19T00:00:00.000Z"
-    }
-  ],
-  "description": "성공"
+  "description": "성공적으로 작업을 수행 했습니다.",
+  "data": {
+    "cartId": 1,
+    "leisureOrderItemList": [
+      {
+        "leisureOrderItemId": 12,
+        "sellerId": 1,
+        "reservationId": null,
+        "couponId": null,
+        "salePrice": 0,
+        "leisureName": "산바다",
+        "addr": "경기도",
+        "price": 150000,
+        "pictureUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-34846249/original/4fe9caaa-95b2-4113-b283-5fdfb0d9f2c0.jpeg?im_w=720",
+        "persons": 3,
+        "startAt": [2023, 5, 30, 16, 0],
+        "endAt": [2023, 6, 9, 20, 0]
+      },
+      {
+        "leisureOrderItemId": 13,
+        "sellerId": 1,
+        "reservationId": null,
+        "couponId": 1,
+        "salePrice": 5000,
+        "leisureName": "바다산",
+        "addr": "남양주시",
+        "price": 145000,
+        "pictureUrl": "https://a0.muscache.com/im/pictures/c247a915-5b81-4990-9406-77cc2c3838df.jpg?im_w=1200",
+        "persons": 3,
+        "startAt": [2023, 5, 30, 16, 0],
+        "endAt": [2023, 6, 9, 20, 0]
+      }
+    ],
+    "totalPrice": 295000
+  }
 }

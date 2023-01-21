@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 // style
 import tw from 'tailwind-styled-components';
@@ -7,7 +7,12 @@ export const TitleSubCss = tw.h3`
   font-bold
 `;
 
-function TitleSub(props) {
+interface Props {
+  children: ReactNode;
+  addClass?: string;
+}
+
+function TitleSub(props: Props) {
   const { addClass } = props;
 
   return <TitleSubCss className={addClass}>{props.children}</TitleSubCss>;

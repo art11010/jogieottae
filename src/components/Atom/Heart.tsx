@@ -1,6 +1,8 @@
-import React from 'react';
+interface Props {
+  addClass?: string;
+}
 
-function Heart(props) {
+function Heart(props: Props) {
   const { addClass } = props;
   return (
     <label className={'swap ' + addClass}>

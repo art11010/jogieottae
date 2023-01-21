@@ -1,7 +1,14 @@
-import React from 'react';
+import { ReactNode } from 'react';
+
+interface Props {
+  children: ReactNode;
+  id: string;
+  name: string;
+  checked?: boolean;
+}
 
 // defaultProps
-function Radio(props) {
+function Radio(props: Props) {
   const { id, name, checked } = props;
 
   return (

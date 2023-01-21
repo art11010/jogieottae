@@ -1,11 +1,12 @@
 import { BrowserRouter } from 'react-router-dom';
 import Router from './Router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const queryClient = new QueryClient();
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 // style
 import CommonStyle from './style/Common.style';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <CommonStyle />
         <Router />
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

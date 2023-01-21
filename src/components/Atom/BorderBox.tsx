@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 // style
 import tw from 'tailwind-styled-components';
@@ -10,7 +10,12 @@ export const BorderBoxEl = tw.div`
   border-gray-400
 `;
 
-function BorderBox(props) {
+interface Props {
+  children: ReactNode;
+  addClass?: string;
+}
+
+function BorderBox(props: Props) {
   const { addClass } = props;
   return <BorderBoxEl className={addClass}>{props.children}</BorderBoxEl>;
 }
