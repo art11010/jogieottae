@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Footer() {
   return (
     <footer className="mt-20 py-5 border-t border-gray-400">

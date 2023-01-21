@@ -10,23 +10,25 @@ export const InputCss = tw.input`
 interface Props {
   id: string;
   label: string;
+  name?: string;
   type?: string;
   placeholder?: string;
   value: string;
   readonly?: boolean;
   addClass?: string;
-  _onChange?: () => void;
+  onChange?: () => void;
 }
 
 function Input(props: Props) {
   const {
     id,
     label,
+    name,
     type = 'text',
     placeholder,
     value,
     readonly,
-    _onChange,
+    onChange,
   } = props;
   let { addClass = '' } = props;
 
@@ -40,10 +42,11 @@ function Input(props: Props) {
         <InputCss
           id={id}
           type={type}
+          name={name}
           placeholder={placeholder}
-          value={value}
+          defaultValue={value}
           readOnly={readonly}
-          onChange={_onChange}
+          onChange={onChange}
         />
       </div>
     </>

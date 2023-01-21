@@ -3,13 +3,13 @@ import { ReactNode } from 'react';
 interface Props {
   children: ReactNode;
   addClass?: string;
-  _onClick: () => void;
+  onClick: () => void;
 }
 
 function Button(props: Props) {
-  const { addClass, _onClick } = props;
+  const { addClass, onClick } = props;
   return (
-    <button className={'btn btn-primary ' + addClass} onClick={_onClick}>
+    <button className={'btn btn-primary ' + addClass} onClick={onClick}>
       {props.children}
     </button>
   );
