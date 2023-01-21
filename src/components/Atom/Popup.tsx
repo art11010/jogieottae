@@ -1,6 +1,11 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
-function Popup(props) {
+interface Props {
+  children: ReactNode;
+  addClass?: string;
+}
+
+function Popup(props: Props) {
   const { addClass } = props;
 
   return (

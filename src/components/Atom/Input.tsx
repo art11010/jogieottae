@@ -1,5 +1,3 @@
-import React from 'react';
-
 // style
 import tw from 'tailwind-styled-components';
 export const InputCss = tw.input`
@@ -9,16 +7,28 @@ export const InputCss = tw.input`
   focus:outline-none
 `;
 
-// defaultProps
-Input.defaultProps = {
-  type: 'text',
-  _onChange: () => {},
-  addClass: '',
-};
+interface Props {
+  id: string;
+  label: string;
+  type?: string;
+  placeholder?: string;
+  value: string;
+  readonly?: boolean;
+  addClass?: string;
+  _onChange?: () => void;
+}
 
-function Input(props) {
-  const { id, label, type, placeholder, value, _onChange } = props;
-  let { addClass } = props;
+function Input(props: Props) {
+  const {
+    id,
+    label,
+    type = 'text',
+    placeholder,
+    value,
+    readonly,
+    _onChange,
+  } = props;
+  let { addClass = '' } = props;
 
   if (addClass) {
     addClass = ' ' + addClass;
@@ -32,6 +42,7 @@ function Input(props) {
           type={type}
           placeholder={placeholder}
           value={value}
+          readOnly={readonly}
           onChange={_onChange}
         />
       </div>

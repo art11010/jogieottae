@@ -1,11 +1,12 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
-// defaultProps
-Button.defaultProps = {
-  _onClick: () => {},
-};
+interface Props {
+  children: ReactNode;
+  addClass?: string;
+  _onClick: () => void;
+}
 
-function Button(props) {
+function Button(props: Props) {
   const { addClass, _onClick } = props;
   return (
     <button className={'btn btn-primary ' + addClass} onClick={_onClick}>

@@ -1,12 +1,10 @@
-import React from 'react';
+interface Props {
+  href?: string;
+  addClass?: string;
+}
 
-// defaultProps
-CloseBtn.defaultProps = {
-  href: '#',
-};
-
-function CloseBtn(props) {
-  const { href, addClass } = props;
+function CloseBtn(props: Props) {
+  const { href = '#', addClass } = props;
   return (
     <a href={href} className={'btn btn-circle btn-ghost ' + addClass}>
       <svg

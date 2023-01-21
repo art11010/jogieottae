@@ -23,7 +23,7 @@ function BookingListBox(props) {
         </button>
         <div className="mt-5">
           <p className="text text-gray-400">예약번호 : Y01010101010101</p>
-          <h4 className="my-2 text-2xl font-bold">{lst.roomName}</h4>
+          <h4 className="my-2 text-2xl font-bold">{lst.roomName} 외 2건</h4>
           <p>
             {lst.date}, {lst.num}명
           </p>

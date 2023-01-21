@@ -1,7 +1,13 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
-function Alink(props) {
+interface Props {
+  children: ReactNode;
+  to: string;
+  addClass?: string;
+}
+
+function Alink(props: Props) {
   const { to, addClass } = props;
   return (
     <Link to={to} className={'btn btn-primary ' + addClass}>
