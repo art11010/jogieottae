@@ -3,27 +3,15 @@ import { Alink, Title, TitleSub, ShadowBox } from '../../components/Atom';
 import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
 
-import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { getCartList } from '../../api/pay';
 
 function Cart() {
-  const getCartList = async () => {
-    try {
-      const res = await axios.get('/data/cartGet.json');
-      const result = res.data.data;
-      return result;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const {
-    isLoading,
-    error,
-    data: payList,
-  } = useQuery(['cartGet'], getCartList);
-  if (isLoading) return 'Loading...';
-  if (error) return 'An error has occurre ';
+  const { data: payList, isLoading: payLoading } = useQuery(
+    ['cartGet'],
+    getCartList
+  );
+  if (payLoading) return 'Loading...';
 
   return (
     <div className="container">
@@ -31,12 +19,12 @@ function Cart() {
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <PayProduct payList={payList.leisureOrderItemList} cart={true} />
+          <PayProduct payList={payList} cart={true} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
           <PayPrice
-            payList={payList.leisureOrderItemList}
+            payList={payList.cartItemList}
             totalPrice={payList.totalPrice}
             cart
           />

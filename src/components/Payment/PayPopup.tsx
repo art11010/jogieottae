@@ -39,7 +39,7 @@ function PayPopup(props: Props): string | any {
   ));
 
   return (
-    <Popup>
+    <Popup id={'couponPopup' + listIdx}>
       <TitleSub addClass="mb-2">쿠폰 할인</TitleSub>
       <CloseBtn addClass="absolute top-3 right-3" />
       <BorderBox addClass="mt-5">

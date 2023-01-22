@@ -1,14 +1,15 @@
-// api.ts
+// https://velog.io/@godud2604/React-Query-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0
 
 import axios from 'axios';
+import { customAxios } from './customAxios';
 
-// const api = axios.create({
-//   baseURL: 'https://api.themoviedb.org/3/',
-// })
+// const requestPost = async (postDto) => {
+//   const res = await customAxios.post('/write-post', postDto);
+// }
 
 export const getCartList = async () => {
   try {
-    const res = await axios.get('/data/cartGet.json');
+    const res = await customAxios.get('/customer/leisure/cart?customerId=1');
     const result = res.data.data;
     return result;
   } catch (error) {
@@ -24,5 +25,3 @@ export const getCouponList = async () => {
     console.log(error);
   }
 };
-
-// https://velog.io/@godud2604/React-Query-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0
