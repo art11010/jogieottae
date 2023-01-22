@@ -97,7 +97,19 @@ function Header() {
             <Link to="/admin/join">회원가입</Link>
             <Link to="/admin/findid">아이디 찾기</Link>
             <Link to="/admin/findpw">비밀번호 찾기</Link>
-            <Link to="/admin/accm">숙박 시설 관리</Link>
+            <Link to="/admin/manager">관리자 로그인</Link>
+            <Link to="/admin/manager/user">회원 상태 관리</Link>
+          </li>
+          <li>
+            <h2 className="font-bold text-lg text-main pointer-events-none">
+              판매자
+            </h2>
+            <Link to="/admin/seller">판매자 로그인</Link>
+            <Link to="/admin/seller/accm?sellerId=2&page=1">숙박시설 목록</Link>
+            <Link to="/admin/seller/accm/detail?accommodationId=2&sellerID=1">
+              숙박시설 상세
+            </Link>
+            <Link to="/admin/seller/accm/add">숙박시설 등록</Link>
           </li>
         </ul>
       </div>
