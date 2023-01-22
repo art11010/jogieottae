@@ -1,14 +1,15 @@
 import { ReactNode } from 'react';
 
 interface Props {
+  id?: string;
   children: ReactNode;
   addClass?: string;
 }
 
 function PopupBtn(props: Props) {
-  const { addClass } = props;
+  const { id = 'layer-popup', addClass } = props;
   return (
-    <a href="#layer-popup" className={'btn btn-primary ' + addClass}>
+    <a href={'#' + id} className={'btn btn-primary ' + addClass}>
       {props.children}
     </a>
   );

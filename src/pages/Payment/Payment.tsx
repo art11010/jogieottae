@@ -3,7 +3,6 @@ import { Alink, Title, TitleSub, ShadowBox } from '../../components/Atom';
 import PayPerson from '../../components/Payment/PayPerson';
 import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
-import PayPopup from '../../components/Payment/PayPopup';
 
 import { useQuery } from '@tanstack/react-query';
 import { getCartList } from '../../api/pay';
