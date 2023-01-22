@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation, useOutletContext } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { Button, Input } from '../../../../components/Atom';
+import AddressBtn from '../../../../components/Atom/Address';
+import * as Kr from '../../../../components/Admin/TransKr.js';
 
-function Detail(){
-  return (
-    <>
-      <div>숙박상세</div>
-    </>
-  );
+function SellerDetail() {
+  return <>숙박상세</>;
 }
 
-export default Detail;
+export default SellerDetail;

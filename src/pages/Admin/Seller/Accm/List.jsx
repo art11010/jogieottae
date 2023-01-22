@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
+import { useLocation, useOutletContext } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import Table from '../../../../components/Admin/Table';
 import PagiNation from '../../../../components/Atom/PagiNation';
+import * as Kr from '../../../../components/Admin/TransKr.js';
 
-function SellerAccmList(){
+function SellerList() {
+  const { mainCate } = useOutletContext();
+  let loca = useLocation();
+  let pathParams = new URLSearchParams(loca.search);
+
   const getData = async () => {
     try {
       const res = await axios.get('/data/sellerAccmList.json');
@@ -16,54 +21,49 @@ function SellerAccmList(){
     }
   };
 
-
-  const {
-    data: accmListData,
-    isLoading
-  } = useQuery(
+  const { data: accmListData, isLoading } = useQuery(
     ['accmListData'],
     getData,
     { staleTime: 1000 }
   );
-
   if (isLoading) return 'Loading…';
 
-  let tb = accmListData.data.content;
-
-  // 테이블 헤더에 들어갈 한글버전
-  const tableKeyTransKR = () => {
-    let tableKey = Object.keys(tb[0]);
-    let tbKeyKRver = new Object();
-
-    tableKey.forEach((k, i) => {
-      let value = '';
-      switch(k){
-        case 'id': value = '고유번호'; break;
-        case 'accomodationName': value = '이름'; break;
-        case 'addr': value = '주소'; break;
-        case 'price': value = '가격'; break;
-      }
-      tbKeyKRver[k] = value;
-    });
-    return tbKeyKRver;
+  const isEmpty = accmListData.data.empty;
+  const tb = accmListData.data.content;
+  const tbKeys = Object.keys(tb[0]);
+  let headNameObj = new Object();
+  for (var i = 0; i < tbKeys.length; i++) {
+    headNameObj[tbKeys[i]] = Kr.tableKeyTransKR(tbKeys[i]);
   }
-
-  let cols = Object.keys(tableKeyTransKR()).length;
-  let loca = useLocation();
-  let pathParams = new URLSearchParams(loca.search);
-  let activePageNum = pathParams.get('page');
 
   return (
     <>
-      <Table cols={cols} headNameObj={tableKeyTransKR()}>
-        { tb }
-      </Table>
-      <PagiNation atvPageNum={activePageNum}
-                  totalPages={accmListData.data.totalPages}
-                  currentPage={loca.pathname}
-                  sellerId={tb[0].sellerId} />
+      {isEmpty ? (
+        <>
+          <p className="flex justify-center items-center h-full text-2xl text-main font-bold">
+            등록된 {mainCate} 시설이 없습니다.
+          </p>
+        </>
+      ) : (
+        <>
+          <Table
+            cols={tbKeys.length}
+            headNameObj={headNameObj}
+            currentPath={loca.pathname}
+            sellerId={pathParams.get('sellerId')}
+          >
+            {tb}
+          </Table>
+          <PagiNation
+            atvPageNum={pathParams.get('page')}
+            totalPageNum={accmListData.data.totalPages}
+            currentPath={loca.pathname}
+            sellerId={pathParams.get('sellerId')}
+          />
+        </>
+      )}
     </>
   );
 }
 
-export default SellerAccmList;
+export default SellerList;
