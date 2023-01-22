@@ -3,30 +3,17 @@ import { Alink, Title, TitleSub, ShadowBox } from '../../components/Atom';
 import PayPerson from '../../components/Payment/PayPerson';
 import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
+import PayPopup from '../../components/Payment/PayPopup';
 
-import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { getCartList } from '../../api/pay';
 
 function Payment() {
-  const getCatList = async () => {
-    try {
-      const res = await axios.get('/data/cartGet.json');
-      const result = res.data.data;
-      return result;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const {
-    isLoading,
-    error,
-    data: paylist,
-  } = useQuery(['cartGet'], getCatList, {
-    staleTime: 5000 * 60 * 5,
-  });
-  if (isLoading) return 'Loading...';
-  if (error) return 'An error has occurre ';
+  const { data: payList, isLoading: payLoading } = useQuery(
+    ['cartGet'],
+    getCartList
+  );
+  if (payLoading) return 'Loading...';
 
   return (
     <div className="container">
@@ -36,18 +23,19 @@ function Payment() {
           <TitleSub addClass="mb-2">예약자 정보</TitleSub>
           <PayPerson />
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <PayProduct paylist={paylist.leisureOrderItemList} />
+          <PayProduct payList={payList.leisureOrderItemList} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
           <PayPrice
-            paylist={paylist.leisureOrderItemList}
-            totalPrice={paylist.totalPrice}
+            payList={payList.leisureOrderItemList}
+            totalPrice={payList.totalPrice}
           />
           <Alink to="/payment/complete" addClass="mt-5 btn-block">
             결제하기
           </Alink>
         </ShadowBox>
+        {/* <PayPopup getCouponData={getCouponData} /> */}
       </div>
     </div>
   );

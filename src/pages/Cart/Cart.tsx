@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 function Cart() {
-  const getCatList = async () => {
+  const getCartList = async () => {
     try {
       const res = await axios.get('/data/cartGet.json');
       const result = res.data.data;
@@ -20,12 +20,9 @@ function Cart() {
   const {
     isLoading,
     error,
-    data: paylist,
-  } = useQuery(['cartGet'], getCatList, {
-    staleTime: 5000 * 60 * 5,
-  });
+    data: payList,
+  } = useQuery(['cartGet'], getCartList);
   if (isLoading) return 'Loading...';
-
   if (error) return 'An error has occurre ';
 
   return (
@@ -34,13 +31,14 @@ function Cart() {
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <PayProduct paylist={paylist.leisureOrderItemList} cart={true} />
+          <PayProduct payList={payList.leisureOrderItemList} cart={true} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
           <PayPrice
-            paylist={paylist.leisureOrderItemList}
-            totalPrice={paylist.totalPrice}
+            payList={payList.leisureOrderItemList}
+            totalPrice={payList.totalPrice}
+            cart
           />
           <Alink to="/payment" addClass="mt-5 btn-block">
             예약하기

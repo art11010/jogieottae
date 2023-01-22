@@ -15,6 +15,7 @@ interface Props {
   placeholder?: string;
   value: string;
   readonly?: boolean;
+  disabled?: boolean;
   addClass?: string;
   onChange?: () => void;
 }
@@ -28,6 +29,7 @@ function Input(props: Props) {
     placeholder,
     value,
     readonly,
+    disabled,
     onChange,
   } = props;
   let { addClass = '' } = props;
@@ -46,6 +48,7 @@ function Input(props: Props) {
           placeholder={placeholder}
           defaultValue={value}
           readOnly={readonly}
+          disabled={disabled}
           onChange={onChange}
         />
       </div>

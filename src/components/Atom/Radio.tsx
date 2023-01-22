@@ -4,12 +4,14 @@ interface Props {
   children: ReactNode;
   id: string;
   name: string;
+  value?: string | number;
   checked?: boolean;
+  onChange?: (e: any) => void;
 }
 
 // defaultProps
 function Radio(props: Props) {
-  const { id, name, checked } = props;
+  const { id, name, value, checked, onChange } = props;
 
   return (
     <>
@@ -18,8 +20,10 @@ function Radio(props: Props) {
           id={id}
           type="radio"
           name={name}
+          value={value}
           className="radio radio-primary"
-          checked={checked}
+          defaultChecked={checked}
+          onChange={onChange}
         />
         <label htmlFor={id} className="ml-3">
           {props.children}
