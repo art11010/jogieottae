@@ -7,12 +7,12 @@ import { getSellerProductList } from '../../../../api/seller';
 import * as Kr from '../../../../components/Admin/TransKr.js';
 
 function SellerList() {
-  const { mainCate } = useOutletContext();
+  const { mainCate, mainPath } = useOutletContext();
   let loca = useLocation();
   let pathParams = new URLSearchParams(loca.search);
 
   const { data: productList, isLoading: productLoading } = useQuery(
-    ['productList'],
+    ['productList', mainPath, pathParams.get('sellerId')],
     getSellerProductList
   );
   if (productLoading) return 'Loading...';

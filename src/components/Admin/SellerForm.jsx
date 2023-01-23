@@ -15,26 +15,27 @@ function SellerForm(props) {
     checKOutTime: !loadData ? '' : loadData.checKOutTime,
     minPerson: !loadData ? '' : loadData.minPerson,
     maxPerson: !loadData ? '' : loadData.maxPerson,
-    pictureUrl: !loadData ? '' : loadData.pictureUrl,
   });
 
   const [sellerAddr, setSellerAddr] = useState(!loadData ? '' : loadData.addr),
+    [image, setimage] = useState(!loadData ? '' : loadData.pictureUrl),
     [lat, setlat] = useState(!loadData ? '' : loadData.lat),
     [lon, setlon] = useState(!loadData ? '' : loadData.lon);
 
-  // console.log(setSellerAddr);
-  // console.log(sellerAddr);
   const valueChange = (e) => {
     setSellerAddConts({
       ...sellerAddConts,
       [e.target.name]: e.target.value,
     });
+    console.log(e);
 
-    // setSellerAddr({ sellerAddr, [e.target.text]: e.target.value });
     setSellerAddr(sellerAddr);
     setlat(lat);
     setlon(lon);
-    getData({ sellerAddConts }, { sellerAddr }, { lat }, { lon });
+    if (e.target.files !== null) {
+      setimage(e.target.files[0].name);
+    }
+    getData({ sellerAddConts }, { sellerAddr }, { image }, { lat }, { lon });
   };
 
   return (
@@ -65,9 +66,10 @@ function SellerForm(props) {
             placeholder="주소"
             onChange={valueChange}
             value={sellerAddr}
+            addClass="grow"
           />
           <AddressBtn
-            addClass="mt-3 grow ml-3"
+            addClass="w-1/3 mt-3 ml-3"
             setSellerAddr={setSellerAddr}
             setlat={setlat}
             setlon={setlon}
@@ -117,11 +119,7 @@ function SellerForm(props) {
           onChange={valueChange}
           value={sellerAddConts.maxPerson}
         />
-        <FileInput
-          id="image"
-          label={`${!loadData ? '이미지 등록' : loadData.pictureUrl}`}
-          onChange={valueChange}
-        />
+        <FileInput id="image" label="이미지 등록" onChange={valueChange} />
         {props.children}
       </div>
     </>
