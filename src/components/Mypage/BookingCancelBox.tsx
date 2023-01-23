@@ -1,19 +1,15 @@
-import React from 'react';
-import { TitleSub, ShadowBox } from '../../components/Atom';
+import { TitleSub, BorderBox } from '../../components/Atom';
 
 function BookingCancel() {
   return (
     <>
-      <ShadowBox addClass="mt-12">
+      <BorderBox addClass="mt-12">
         <div className="flex">
           <div>
             <TitleSub addClass="mb-5">
               취소 사유 <span className="text-main">*</span>
             </TitleSub>
             <select className="select select-bordered w-72 border-gray-400 focus:outline-none">
-              <option disabled selected>
-                선택해주세요
-              </option>
               <option>단순 변심</option>
               <option>예약정보 변경 (상품, 일정 등)</option>
               <option>중복예약 / 이용조건 불만</option>
@@ -39,7 +35,7 @@ function BookingCancel() {
             </dd>
           </dl>
         </div>
-      </ShadowBox>
+      </BorderBox>
     </>
   );
 }

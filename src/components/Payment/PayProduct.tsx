@@ -1,11 +1,13 @@
-import { useState } from 'react';
-import { CloseBtn, PopupBtn } from '../Atom';
+import React, { useState } from 'react';
+import { Button, PopupBtn, IconX } from '../Atom';
 import PayPopup from './PayPopup';
 
-type ItemList = 'cartItemList' | 'orderItemList';
+import { useMutation } from '@tanstack/react-query';
+import { delCartList } from '../../api/cart';
+
 interface Props {
   payList: {
-    cartItemList: [
+    orderItemList: [
       {
         orderItemId: number;
         name: string;
@@ -24,8 +26,13 @@ interface Props {
 function PayProduct(props: Props) {
   const { payList, cart } = props;
 
-  const payListMap = payList.cartItemList.map((item, idx) => {
+  const payListMap = payList.orderItemList.map((item, idx) => {
     const [coupon, setCoupon] = useState(0);
+
+    const { mutate: cartdelList, isLoading: cartdelLoading } =
+      useMutation(delCartList);
+    if (cartdelLoading)
+      return <React.Fragment key={item.name + idx}>Loading...</React.Fragment>;
 
     const getCouponData = (couponPrice: number) => {
       setCoupon(couponPrice);
@@ -36,7 +43,16 @@ function PayProduct(props: Props) {
         key={item.name + idx}
         className="flex flex-wrap relative items-start py-5 border-t border-gray-400"
       >
-        {cart && <CloseBtn addClass="absolute top-2 right-0" />}
+        {cart && (
+          <Button
+            addClass="btn-circle btn-ghost absolute top-2 right-0"
+            onClick={() => {
+              cartdelList(item.orderItemId);
+            }}
+          >
+            <IconX />
+          </Button>
+        )}
         <img
           src="https://a0.muscache.com/im/pictures/miso/Hosting-34846249/original/4fe9caaa-95b2-4113-b283-5fdfb0d9f2c0.jpeg?im_w=720"
           alt=""

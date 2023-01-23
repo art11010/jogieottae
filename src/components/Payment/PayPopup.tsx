@@ -1,4 +1,5 @@
-import { TitleSub, BorderBox, Radio, Popup, CloseBtn } from '../Atom';
+import React from 'react';
+import { TitleSub, BorderBox, Radio, Popup, PopupCloseBtn } from '../Atom';
 
 import { useQuery } from '@tanstack/react-query';
 import { getCouponList } from '../../api/coupon';
@@ -16,13 +17,13 @@ interface Props {
   getCouponData: (couponPrice: number) => void;
 }
 
-function PayPopup(props: Props): string | any {
+function PayPopup(props: Props) {
   const { getCouponData, listIdx } = props;
   const { data: couponList, isLoading: couponLoading } = useQuery(
     ['couponGet'],
     getCouponList
   );
-  if (couponLoading) return 'Loading...';
+  if (couponLoading) return <React.Fragment>Loading...</React.Fragment>;
 
   const couponListMap = couponList.map((item: Item, idx: number) => (
     <Radio
@@ -44,7 +45,10 @@ function PayPopup(props: Props): string | any {
   return (
     <Popup id={'couponPopup' + listIdx}>
       <TitleSub addClass="mb-2">쿠폰 할인</TitleSub>
-      <CloseBtn addClass="absolute top-3 right-3" />
+      <PopupCloseBtn
+        addClass="absolute top-3 right-3"
+        id={'couponPopup' + listIdx}
+      />
       <BorderBox addClass="mt-5">
         <h5 className="text-xl font-bold">보유 쿠폰</h5>
         <div className="mt-3 pt-2 border-t border-gray-400">
@@ -55,9 +59,9 @@ function PayPopup(props: Props): string | any {
         </div>
       </BorderBox>
       <div className="mt-6 text-right">
-        <a href="#" className="btn btn-primary">
+        <label htmlFor={'couponPopup' + listIdx} className="btn btn-primary">
           적용하기
-        </a>
+        </label>
       </div>
     </Popup>
   );

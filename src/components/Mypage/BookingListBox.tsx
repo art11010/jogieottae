@@ -1,11 +1,21 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { TitleSub, BorderBox } from '../Atom';
 
 // assets
 import roomImg from '../../assets/img_room.jpeg';
 
-function BookingListBox(props) {
+interface Booklist {
+  imgSrc: string;
+  roomName: string;
+  paydata: string;
+  date: string;
+  num: number;
+}
+interface Props {
+  booklist: Booklist[];
+}
+
+function BookingListBox(props: Props) {
   const { booklist } = props;
 
   const booklistMap = booklist.map((lst, idx) => (
@@ -27,9 +37,6 @@ function BookingListBox(props) {
           <p>
             {lst.date}, {lst.num}명
           </p>
-          <span className="block mt-3 text-xs">
-            2023.02.20 00:00 전까지 <strong>무료취소</strong>
-          </span>
           <Link
             to="/mypage/booking/review"
             className="btn btn-primary mt-5 w-full"

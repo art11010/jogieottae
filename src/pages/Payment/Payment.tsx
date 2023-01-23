@@ -20,7 +20,7 @@ function Payment() {
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약자 정보</TitleSub>
-          <PayPerson />
+          <PayPerson payList={payList} />
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
           <PayProduct payList={payList} />
         </ShadowBox>

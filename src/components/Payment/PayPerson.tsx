@@ -1,9 +1,16 @@
 import { Input } from '../Atom';
 
-function PayPerson() {
+interface Props {
+  payList: {
+    customerName: string;
+  };
+}
+
+function PayPerson(props: Props) {
+  const { payList } = props;
   return (
     <div className="pt-5 pb-10 border-t border-gray-400">
-      <Input id="name" label="이름" value="김말똥" readonly />
+      <Input id="name" label="이름" value={payList.customerName} readonly />
       <Input
         id="phone"
         label="휴대폰 번호"

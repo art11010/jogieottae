@@ -9,9 +9,9 @@ interface Props {
 function PopupBtn(props: Props) {
   const { id = 'layer-popup', addClass } = props;
   return (
-    <a href={'#' + id} className={'btn btn-primary ' + addClass}>
+    <label htmlFor={id} className={'btn btn-primary ' + addClass}>
       {props.children}
-    </a>
+    </label>
   );
 }
 

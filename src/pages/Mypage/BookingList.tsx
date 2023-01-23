@@ -1,28 +1,27 @@
-import React from 'react';
 import { Title } from '../../components/Atom';
 import BookingListBox from '../../components/Mypage/BookingListBox';
-
-// assets
-import roomImg from '../../assets/img_room.jpeg';
 
 function BookingList() {
   const booklist = [
     {
-      imgSrc: roomImg,
+      imgSrc:
+        'https://a0.muscache.com/im/pictures/miso/Hosting-34846249/original/4fe9caaa-95b2-4113-b283-5fdfb0d9f2c0.jpeg?im_w=720',
       roomName: '마포 신라스테이',
       paydata: '2022.12.25 (일)',
       date: '2월 25일 ~ 2월 26일',
       num: 2,
     },
     {
-      imgSrc: roomImg,
+      imgSrc:
+        'https://a0.muscache.com/im/pictures/miso/Hosting-34846249/original/4fe9caaa-95b2-4113-b283-5fdfb0d9f2c0.jpeg?im_w=720',
       roomName: '그랜드 하얏트 제주',
       paydata: '2020.08.30 (일)',
       date: '3월 1일 ~ 3월 3일',
       num: 4,
     },
     {
-      imgSrc: roomImg,
+      imgSrc:
+        'https://a0.muscache.com/im/pictures/miso/Hosting-34846249/original/4fe9caaa-95b2-4113-b283-5fdfb0d9f2c0.jpeg?im_w=720',
       roomName: '강릉 세인트존스호텔',
       paydata: '2023.01.01 (일)',
       date: '5월 5일 ~ 5월 8일',

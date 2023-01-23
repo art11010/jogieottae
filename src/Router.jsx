@@ -17,6 +17,7 @@ import BookingList from './pages/Mypage/BookingList';
 import BookingDetails from './pages/Mypage/BookingDetails';
 import BookingCancel from './pages/Mypage/BookingCancel';
 import BookingReview from './pages/Mypage/BookingReview';
+import WishList from './pages/Mypage/WishList';
 import UserDelete from './pages/Mypage/UserDelete';
 // Product
 import ProductList from './pages/Product/List';
@@ -58,6 +59,7 @@ function Router() {
           <Route path={'booking/details'} element={<BookingDetails />} />
           <Route path={'booking/cancel'} element={<BookingCancel />} />
           <Route path={'booking/review'} element={<BookingReview />} />
+          <Route path={'wish'} element={<WishList />} />
         </Route>
         <Route path={'payment'} element={<Payment />} />
         <Route path={'payment/complete'} element={<Complete />} />

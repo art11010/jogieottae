@@ -6,7 +6,6 @@ export const getPayList = async () => {
       '/customer/leisure/cart/payment?customerId=1&customerName=안다'
     );
     const result = res.data.data;
-    console.log(result);
     return result;
   } catch (error) {
     console.log(error);

@@ -2,7 +2,7 @@ interface Props {
   addClass?: string;
 }
 
-function Heart(props: Props) {
+function IconHeart(props: Props) {
   const { addClass } = props;
   return (
     <label className={'swap ' + addClass}>
@@ -42,4 +42,4 @@ function Heart(props: Props) {
   );
 }
 
-export default Heart;
+export default IconHeart;
