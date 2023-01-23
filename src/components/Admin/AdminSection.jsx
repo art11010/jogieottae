@@ -10,6 +10,7 @@ function AdminSection() {
     ? 'ManagerMenuList'
     : 'SellerMenuList';
   const mainCate = pathName.includes('accm') ? '숙박' : '레저';
+  const mainPath = pathName.includes('accm') ? 'accm' : 'leisure';
 
   const [menu, setMenu] = useState([]);
   useEffect(() => {
@@ -82,7 +83,7 @@ function AdminSection() {
         <ul>{menu}</ul>
       </aside>
       <section className="flex flex-col w-3/4 pt-50 pb-50">
-        <Outlet context={{ mainCate }} />
+        <Outlet context={{ mainCate, mainPath }} />
       </section>
     </section>
   );

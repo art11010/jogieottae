@@ -13,7 +13,8 @@ interface Props {
   name?: string;
   type?: string;
   placeholder?: string;
-  value: string;
+  defaultValue?: string;
+  value?: string;
   readonly?: boolean;
   disabled?: boolean;
   addClass?: string;
@@ -27,6 +28,7 @@ function Input(props: Props) {
     name,
     type = 'text',
     placeholder,
+    defaultValue,
     value,
     readonly,
     disabled,
@@ -46,7 +48,8 @@ function Input(props: Props) {
           type={type}
           name={name}
           placeholder={placeholder}
-          defaultValue={value}
+          defaultValue={defaultValue}
+          value={value}
           readOnly={readonly}
           disabled={disabled}
           onChange={onChange}

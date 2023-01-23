@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
 import axios from 'axios';
-import { Button, Input } from '../../../../components/Atom';
-import AddressBtn from '../../../../components/Atom/Address';
+import { Button, TitleSub } from '../../../../components/Atom';
+import SellerForm from '../../../../components/Admin/SellerForm';
 
-function SellerAccmAdd() {
+function SellerAdd() {
+  const { mainCate, mainPath } = useOutletContext();
   const navigate = useNavigate();
-  const { mainCate } = useOutletContext();
+
   let loca = useLocation();
   let pathParams = new URLSearchParams(loca.search);
 
-  const [sellerAddConts, setSellerAddConts] = useState({
+  const [sellerAddData, setSellerAddData] = useState({
     name: '',
     price: '',
-    addrDetail: '',
     description: '',
     checkInTime: '',
     checKOutTime: '',
@@ -21,35 +21,42 @@ function SellerAccmAdd() {
     maxPerson: '',
     image: '',
   });
+
   const [sellerAddr, setSellerAddr] = useState(''),
     [lat, setlat] = useState(''),
     [lon, setlon] = useState('');
+
   const {
     name,
     price,
-    addrDetail,
     description,
     checkInTime,
     checKOutTime,
     minPerson,
     maxPerson,
     image,
-  } = sellerAddConts;
+  } = sellerAddData;
 
-  const valueChange = (e) => {
-    setSellerAddConts({ ...sellerAddConts, [e.target.name]: e.target.value });
+  const getData = (sellerAddConts, sellerAddr, lat, lon) => {
+    setSellerAddData(sellerAddConts);
+    setSellerAddr(sellerAddr);
+    setlat(lat);
+    setlon(lon);
   };
 
-  const sendData = (e) => {
+  const server = 'https://jsonplaceholder.typicode.com/users';
+  const addProduct = (e) => {
     e.preventDefault();
 
     // POST
     axios
       .post(
-        'https://jsonplaceholder.typicode.com/users',
+        server,
+        // `${server}/seller/${mainPath}?sellerId=${pathParams.get('sellerId')}`,
+        // `${server}/seller/leisure?sellerId=${pathParams.get('sellerId')}`,
         {
-          accommodationName: name,
-          addr: sellerAddr + ' ' + addrDetail,
+          name: name,
+          addr: sellerAddr,
           price: price,
           pictureUrl: image,
           description: description,
@@ -61,6 +68,7 @@ function SellerAccmAdd() {
           lon: lon,
         },
         {
+          withCredentials: true,
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
@@ -70,7 +78,9 @@ function SellerAccmAdd() {
         console.log(response);
         alert('등록이 완료되었습니다.');
         navigate(
-          `/admin/seller/accm?sellerId=${pathParams.get('sellerId')}&page=1`
+          `/admin/seller/${mainPath}?sellerId=${pathParams.get(
+            'sellerId'
+          )}&page=1`
         );
       })
       .catch((error) => {
@@ -80,109 +90,17 @@ function SellerAccmAdd() {
 
   return (
     <>
-      <form
-        onSubmit={sendData}
-        method="post"
-        className="flex flex-col justify-center w-2/3"
+      <TitleSub>{mainCate}시설 등록하기</TitleSub>
+      <SellerForm
+        addClass="flex flex-col justify-center w-2/3"
+        getData={getData}
       >
-        <Input
-          id="name"
-          label={`${mainCate}명`}
-          name="name"
-          placeholder={`${mainCate}의 이름을 적어주세요.`}
-          onChange={valueChange}
-          value={sellerAddConts.name}
-        />
-        <Input
-          type="number"
-          label="가격"
-          id="price"
-          name="price"
-          placeholder={`${mainCate}의 가격을 적어주세요.`}
-          onChange={valueChange}
-          value={sellerAddConts.price}
-        />
-        <div className="flex justify-center items-end">
-          <Input
-            id="addr"
-            label="주소"
-            name="addr"
-            placeholder="주소"
-            onChange={valueChange}
-            value={sellerAddr}
-          />
-          <AddressBtn
-            addClass="mt-3 grow ml-3"
-            setSellerAddr={setSellerAddr}
-            setlat={setlat}
-            setlon={setlon}
-          />
-        </div>
-        <Input
-          id="addrDetail"
-          label="상세 주소"
-          name="addrDetail"
-          placeholder="상세 주소"
-          onChange={valueChange}
-          value={sellerAddConts.addrDetail}
-        />
-        <Input
-          id="description"
-          label={`${mainCate}설명`}
-          name="description"
-          placeholder={`${mainCate} 설명을 적어주세요.`}
-          onChange={valueChange}
-          value={sellerAddConts.description}
-        />
-        <Input
-          type="number"
-          id="checkInTime"
-          label="체크인 시간"
-          name="checkInTime"
-          placeholder="체크인 시간을 적어주세요."
-          onChange={valueChange}
-          value={sellerAddConts.checkInTime}
-        />
-        <Input
-          type="number"
-          id="checKOutTime"
-          label="체크아웃 시간"
-          name="checKOutTime"
-          placeholder="체크아웃 시간을 적어주세요."
-          onChange={valueChange}
-          value={sellerAddConts.checKOutTime}
-        />
-        <Input
-          type="number"
-          id="minPerson"
-          label="최소 인원"
-          name="minPerson"
-          placeholder="최소 인원을 적어주세요."
-          onChange={valueChange}
-          value={sellerAddConts.minPerson}
-        />
-        <Input
-          type="number"
-          id="maxPerson"
-          label="최대 인원"
-          name="maxPerson"
-          placeholder="최대 인원을 적어주세요."
-          onChange={valueChange}
-          value={sellerAddConts.maxPerson}
-        />
-        <Input
-          type="file"
-          id="image"
-          label="이미지 등록"
-          name="image"
-          placeholder="이미지 등록"
-          onChange={valueChange}
-          value={sellerAddConts.image}
-        />
-        <Button addClass="w-1/3 m-auto mt-3">등록하기</Button>
-      </form>
+        <Button type="submit" addClass="w-1/3 m-auto mt-3" onClick={addProduct}>
+          등록하기
+        </Button>
+      </SellerForm>
     </>
   );
 }
 
-export default SellerAccmAdd;
+export default SellerAdd;
