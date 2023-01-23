@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { start } from 'repl';
 import { CloseBtn, PopupBtn } from '../Atom';
 import PayPopup from './PayPopup';
 
+type ItemList = 'cartItemList' | 'orderItemList';
 interface Props {
   payList: {
     cartItemList: [

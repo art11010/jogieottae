@@ -1,21 +1,33 @@
-import { Alink, Title, TitleSub, ShadowBox } from '../../components/Atom';
+import {
+  Alink,
+  Title,
+  TitleSub,
+  ShadowBox,
+  Button,
+} from '../../components/Atom';
 
 import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
 
-import { useQuery } from '@tanstack/react-query';
-import { getCartList } from '../../api/payment';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import { getCartList, postCartList } from '../../api/cart';
 
 function Cart() {
+  const { mutate: cartaddList, isLoading: cartaddLoading } =
+    useMutation(postCartList);
+
   const { data: payList, isLoading: payLoading } = useQuery(
     ['cartGet'],
     getCartList
   );
+
+  if (cartaddLoading) return 'Loading...';
   if (payLoading) return 'Loading...';
 
   return (
     <div className="container">
       <Title>장바구니</Title>
+      <Button onClick={cartaddList}>나중을 위한 장바구니 추가 버튼</Button>
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약 정보</TitleSub>

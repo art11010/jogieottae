@@ -4,8 +4,8 @@ interface Props {
   children: ReactNode;
   type?: 'button' | 'submit' | 'reset' | undefined;
   addClass?: string;
-  onClick: () => void;
-  onSubmit: () => void;
+  onClick?: () => void; // React.MouseEventHandler<HTMLButtonElement> (e: React.MouseEvent<HTMLElement>) => void,
+  onSubmit?: () => void;
 }
 
 function Button(props: Props) {
