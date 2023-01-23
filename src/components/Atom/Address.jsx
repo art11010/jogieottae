@@ -33,7 +33,6 @@ function AddressBtn(props) {
       }
     });
     props.setSellerAddr(fullAddress);
-    console.log(fullAddress);
   };
 
   const AddressSettingClick = () => {

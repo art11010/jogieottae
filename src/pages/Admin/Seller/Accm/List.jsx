@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLocation, useOutletContext } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import Table from '../../../../components/Admin/Table';
 import PagiNation from '../../../../components/Atom/PagiNation';
+import { getSellerProductList } from '../../../../api/seller';
 import * as Kr from '../../../../components/Admin/TransKr.js';
 
 function SellerList() {
@@ -11,25 +11,14 @@ function SellerList() {
   let loca = useLocation();
   let pathParams = new URLSearchParams(loca.search);
 
-  const getData = async () => {
-    try {
-      const res = await axios.get('/data/sellerAccmList.json');
-      const data = res.data;
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const { data: accmListData, isLoading } = useQuery(
-    ['accmListData'],
-    getData,
-    { staleTime: 1000 }
+  const { data: productList, isLoading: productLoading } = useQuery(
+    ['productList'],
+    getSellerProductList
   );
-  if (isLoading) return 'Loading…';
+  if (productLoading) return 'Loading...';
 
-  const isEmpty = accmListData.data.empty;
-  const tb = accmListData.data.content;
+  const isEmpty = productList.data.empty;
+  const tb = productList.data.content;
   const tbKeys = Object.keys(tb[0]);
   let headNameObj = new Object();
   for (var i = 0; i < tbKeys.length; i++) {
@@ -56,7 +45,7 @@ function SellerList() {
           </Table>
           <PagiNation
             atvPageNum={pathParams.get('page')}
-            totalPageNum={accmListData.data.totalPages}
+            totalPageNum={productList.data.totalPages}
             currentPath={loca.pathname}
             sellerId={pathParams.get('sellerId')}
           />

@@ -1,6 +1,7 @@
 import Alink from './Atom/Alink';
 import Button from './Atom/Button';
 import Input from './Atom/Input';
+import FileInput from './Atom/FileInput';
 import Radio from './Atom/Radio';
 import Checkbox from './Atom/Checkbox';
 import Title from './Atom/Title';
@@ -16,6 +17,7 @@ export {
   Alink,
   Button,
   Input,
+  FileInput,
   Radio,
   Checkbox,
   Title,
