@@ -1,6 +1,6 @@
 interface Props {
   payList: {
-    cartItemList: [
+    orderItemList: [
       {
         orderItemId: number;
         name: string;
@@ -28,7 +28,7 @@ function PayPrice(props: Props) {
       <div className="py-5 px-2 border-t border-gray-400">
         <p className="flex justify-between">
           총 선택 상품{' '}
-          <strong className="text-lg">{payList.cartItemList.length}건</strong>
+          <strong className="text-lg">{payList.orderItemList.length}건</strong>
         </p>
         <p className="flex justify-between">
           총 결제 금액{' '}

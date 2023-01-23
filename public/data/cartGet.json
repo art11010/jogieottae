@@ -4,7 +4,7 @@
   "description": "성공적으로 작업을 수행 했습니다.",
   "data": {
     "cartId": 1,
-    "cartItemList": [
+    "orderItemList": [
       {
         "orderItemId": 1,
         "name": "참 나쁜 레저",

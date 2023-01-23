@@ -27,7 +27,18 @@ function Cart() {
   return (
     <div className="container">
       <Title>장바구니</Title>
-      <Button onClick={cartaddList}>나중을 위한 장바구니 추가 버튼</Button>
+      <Button
+        onClick={() => {
+          cartaddList({
+            productId: 4,
+            persons: 3,
+            startAt: '2023-05-30T16:00',
+            endAt: '2023-06-09T20:00',
+          });
+        }}
+      >
+        나중을 위한 장바구니 추가 버튼
+      </Button>
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약 정보</TitleSub>

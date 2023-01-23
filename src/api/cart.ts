@@ -10,14 +10,29 @@ export const getCartList = async () => {
   }
 };
 
-export const postCartList = async () => {
+interface PostDto {
+  productId: number;
+  persons: number;
+  startAt: string;
+  endAt: string;
+}
+export const postCartList = async (postDto: PostDto) => {
   try {
-    const res = await axiosCustom.post('/customer/leisure/cart?customerId=1', {
-      leisureId: 2,
-      persons: 2,
-      startAt: '2023-05-30T16:00',
-      endAt: '2023-06-09T20:00',
-    });
+    const res = await axiosCustom.post(
+      '/customer/leisure/cart?customerId=1',
+      postDto
+    );
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const delCartList = async (delDto: number) => {
+  try {
+    const res = await axiosCustom.delete(
+      `/customer/leisure/cart?customerId=1&leisureOrderItemId=${delDto}`
+    );
     return res;
   } catch (error) {
     console.log(error);

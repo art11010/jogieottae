@@ -10,9 +10,14 @@ function Popup(props: Props) {
   const { id = 'layer-popup', addClass } = props;
 
   return (
-    <div id={id} className={'modal ' + addClass}>
-      <div className="modal-box relative">{props.children}</div>
-    </div>
+    <>
+      <input type="checkbox" id={id} className={'modal-toggle ' + addClass} />
+      <label htmlFor={id} className="modal cursor-pointer">
+        <label className="modal-box relative" htmlFor="">
+          {props.children}
+        </label>
+      </label>
+    </>
   );
 }
 
