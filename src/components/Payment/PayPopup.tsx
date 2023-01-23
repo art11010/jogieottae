@@ -1,7 +1,7 @@
 import { TitleSub, BorderBox, Radio, Popup, CloseBtn } from '../Atom';
 
 import { useQuery } from '@tanstack/react-query';
-import { getCouponList } from '../../api/payment';
+import { getCouponList } from '../../api/coupon';
 
 interface Item {
   id: number;
