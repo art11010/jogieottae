@@ -36,9 +36,9 @@ import AdminFindPW from './pages/Admin/Login/FindPW';
 import AdminFindID from './pages/Admin/Login/FindID';
 import ManagerUserList from './pages/Admin/Manager/User/List';
 // seller
-import SellerAccmList from './pages/Admin/Seller/Accm/List';
-import SellerAccmDetail from './pages/Admin/Seller/Accm/Detail';
-import SellerAccmAdd from './pages/Admin/Seller/Accm/Add';
+import SellerList from './pages/Admin/Seller/Accm/List';
+import SellerDetail from './pages/Admin/Seller/Accm/Detail';
+import SellerAdd from './pages/Admin/Seller/Accm/Add';
 
 function Router() {
   return (
@@ -78,9 +78,12 @@ function Router() {
           <Route path={'admin/manager/user'} element={<ManagerUserList />} />
           {/* 셀러 */}
           <Route path={'admin/seller'} element={<Admin />} />
-          <Route path={'admin/seller/accm'} element={<SellerAccmList />} />
-          <Route path={'admin/seller/accm/detail'} element={<SellerAccmDetail />} />
-          <Route path={'admin/seller/accm/add'} element={<SellerAccmAdd />} />
+          <Route path={'admin/seller/leisure'} element={<SellerList />} />
+          <Route
+            path={'admin/seller/leisure/detail'}
+            element={<SellerDetail />}
+          />
+          <Route path={'admin/seller/leisure/add'} element={<SellerAdd />} />
         </Route>
       </Route>
     </Routes>

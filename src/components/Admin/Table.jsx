@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 
 function Table(props) {
   const { rows, cols, headNameObj, currentPath, sellerId } = props;
   const tableData = props.children;
+  const { mainCate, mainPath } = useOutletContext();
 
   const tableHeader = Object.keys(headNameObj).map((headItem, headIdx) => {
     return (
@@ -21,7 +22,7 @@ function Table(props) {
       itemCols.push(
         <td key={`tbBodyColumn${c}`} className="text-center">
           <Link
-            to={`${currentPath}/detail?id=${e.id}&sellerId=${sellerId}`}
+            to={`${currentPath}/detail?sellerId=${sellerId}&${mainPath}Id=${e.id}`}
             key={`page${i}`}
             className="hover:text-main"
           >
@@ -30,7 +31,11 @@ function Table(props) {
         </td>
       );
     }
-    item.push(<tr key={`tbBodyRows${i}`}>{itemCols}</tr>);
+    item.push(
+      <tr className="hover" key={`tbBodyRows${i}`}>
+        {itemCols}
+      </tr>
+    );
     return item;
   });
 

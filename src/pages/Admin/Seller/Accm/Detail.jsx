@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
+import { customAxios } from '../../../../api/customAxios';
 import { Button, TitleSub } from '../../../../components/Atom';
 import SellerForm from '../../../../components/Admin/SellerForm';
 import { getSellerProductDetail } from '../../../../api/seller';
@@ -7,6 +8,10 @@ import { useQuery } from '@tanstack/react-query';
 
 function SellerDetail() {
   const { mainCate, mainPath } = useOutletContext();
+  const navigate = useNavigate();
+
+  let loca = useLocation();
+  let pathParams = new URLSearchParams(loca.search);
 
   const [sellerAddDatasss, setSellerAddDatasss] = useState({
     name: '',
@@ -35,7 +40,7 @@ function SellerDetail() {
   } = sellerAddDatasss;
 
   const { data: productDetail, isLoading: productLoading } = useQuery(
-    ['productDetail'],
+    ['productDetail', mainPath, pathParams.get(`${mainPath}Id`)],
     getSellerProductDetail
   );
   if (productLoading) return 'Loading...';
@@ -47,17 +52,16 @@ function SellerDetail() {
     // setalon(lon);
   };
 
-  const server = 'https://jsonplaceholder.typicode.com/users';
   const editProduct = (e) => {
     console.log('editProduct');
     e.preventDefault();
 
     // PUT
-    axios
+    customAxios
       .put(
-        server,
-        // `${server}/seller/${mainPath}?sellerId=${pathParams.get('sellerId')}`,
-        // `${server}/seller/leisure?sellerId=${pathParams.get('sellerId')}`,
+        `/seller/${mainPath}?sellerId=${pathParams.get(
+          'sellerId'
+        )}&${mainPath}Id=${pathParams.get(`${mainPath}Id`)}`,
         {
           name: name,
           addr: asellerAddr,
@@ -93,7 +97,26 @@ function SellerDetail() {
   };
 
   const delProduct = () => {
-    console.log('delProduct');
+    customAxios
+      .delete(
+        `/seller/${mainPath}?sellerId=${pathParams.get(
+          'sellerId'
+        )}&${mainPath}Id=${pathParams.get(`${mainPath}Id`)}`
+      )
+      .then((response) => {
+        console.log(response);
+        if (window.confirm('정말로 삭제하시겠습니까?')) {
+          alert('삭제가 완료되었습니다.');
+          navigate(
+            `/admin/seller/${mainPath}?sellerId=${pathParams.get(
+              'sellerId'
+            )}&page=1`
+          );
+        }
+      })
+      .catch((error) => {
+        alert(`삭제에 실패했습니다. 에러 코드 : ${error}`);
+      });
   };
 
   return (
