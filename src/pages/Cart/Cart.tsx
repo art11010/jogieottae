@@ -4,7 +4,7 @@ import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
 
 import { useQuery } from '@tanstack/react-query';
-import { getCartList } from '../../api/pay';
+import { getCartList } from '../../api/payment';
 
 function Cart() {
   const { data: payList, isLoading: payLoading } = useQuery(
@@ -19,15 +19,11 @@ function Cart() {
       <div className="mt-10 grid grid-cols-2 gap-10 items-start">
         <ShadowBox>
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <PayProduct payList={payList} cart={true} />
+          <PayProduct payList={payList} cart />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
-          <PayPrice
-            payList={payList.cartItemList}
-            totalPrice={payList.totalPrice}
-            cart
-          />
+          <PayPrice payList={payList} cart />
           <Alink to="/payment" addClass="mt-5 btn-block">
             예약하기
           </Alink>
