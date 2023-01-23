@@ -2,11 +2,13 @@ interface Props {
   id: string;
   label: string;
   addClass?: string;
+  name?: string;
+  ref?: string;
   onChange?: () => void;
 }
 
 function FileInput(props: Props) {
-  const { id, label, onChange } = props;
+  const { id, label, name, ref, onChange } = props;
   let { addClass = '' } = props;
 
   if (addClass) {
@@ -20,7 +22,9 @@ function FileInput(props: Props) {
       <input
         id={id}
         type="file"
+        name={name}
         className="file-input file-input-bordered w-full border-gray-400"
+        ref={ref}
         onChange={onChange}
       />
     </div>

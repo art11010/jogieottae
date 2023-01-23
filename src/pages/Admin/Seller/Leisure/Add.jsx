@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { axiosCustom } from '../../../../api/axiosCustom';
 import { Button, TitleSub } from '../../../../components/Atom';
 import SellerForm from '../../../../components/Admin/SellerForm';
@@ -23,9 +23,9 @@ function SellerAdd() {
   });
 
   const [sellerAddr, setSellerAddr] = useState(''),
-    [image, setimage] = useState(''),
-    [lat, setlat] = useState(''),
-    [lon, setlon] = useState('');
+    [image, setImage] = useState(''),
+    [lat, setLat] = useState(''),
+    [lon, setLon] = useState('');
 
   const {
     name,
@@ -38,17 +38,11 @@ function SellerAdd() {
   } = sellerAddConts;
 
   const getData = (sellerAddConts, sellerAddr, image, lat, lon) => {
-    setSellerAddConts(sellerAddConts.sellerAddConts);
-    setSellerAddr(sellerAddr.sellerAddr);
-    setimage(image.image);
-    setlat(lat.lat);
-    setlon(lon.lon);
-
-    console.log(sellerAddConts.sellerAddConts);
-    console.log(sellerAddr.sellerAddr);
-    console.log(image.image);
-    console.log(lat.lat);
-    console.log(lon.lon);
+    setSellerAddConts(sellerAddConts);
+    setSellerAddr(sellerAddr);
+    setImage(image);
+    setLat(lat);
+    setLon(lon);
   };
 
   const postData = {
@@ -65,41 +59,46 @@ function SellerAdd() {
     lon: lon,
   };
 
-  const { mutate, isLoading, isError, error, isSuccess } = useMutation(
-    (postData) => {
-      axiosCustom
-        .post(
-          `/seller/${mainPath}?sellerId=${pathParams.get('sellerId')}`,
-          postData,
-          {
-            headers: {
-              'Content-type': 'application/json; charset=UTF-8',
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-          alert('등록이 완료되었습니다.');
-          navigate(
-            `/admin/seller/${mainPath}?sellerId=${pathParams.get(
-              'sellerId'
-            )}&page=1`
-          );
-        })
-        .catch((error) => {
-          alert(`등록에 실패했습니다. 에러 코드 : ${error}`);
-        });
-    },
-    {
-      onSuccess: () => {
-        console.log(' 성공했나 ?');
-        console.log(mutate, isLoading, isError, error, isSuccess);
-      },
-    }
-  );
+  const { mutate } = useMutation((postData) => {
+    axiosCustom
+      .post(
+        `/seller/${mainPath}?sellerId=${pathParams.get('sellerId')}`,
+        postData,
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      )
+      .then((response) => {
+        // console.log(response);
+        alert('등록이 완료되었습니다.');
+        navigate(
+          `/admin/seller/${mainPath}?sellerId=${pathParams.get(
+            'sellerId'
+          )}&page=1`
+        );
+      })
+      .catch((error) => {
+        alert(`등록에 실패했습니다. 에러 코드 : ${error}`);
+      });
+  });
   const addProduct = (e) => {
     e.preventDefault();
-    mutate(postData);
+
+    let dataFlag = 1;
+    const postDataKeys = Object.keys(postData);
+    for (var i = 0; i < postDataKeys.length; i++) {
+      if (postData[postDataKeys[i]].length <= 0) {
+        dataFlag = 0;
+      }
+    }
+    if (dataFlag) {
+      getData(sellerAddConts, sellerAddr, image, lat, lon);
+      mutate(postData);
+    } else {
+      alert('모든 입력창을 입력해주세요.');
+    }
   };
 
   return (

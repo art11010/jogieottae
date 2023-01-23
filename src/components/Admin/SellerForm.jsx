@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { Input, FileInput } from '../Atom';
 import AddressBtn from '../Atom/Address';
 
 function SellerForm(props) {
   const { addClass, getData, loadData } = props;
-  const { mainCate } = useOutletContext();
+  const { mainCate, mainPath } = useOutletContext();
 
   const [sellerAddConts, setSellerAddConts] = useState({
     name: !loadData ? '' : loadData.name,
@@ -18,25 +18,25 @@ function SellerForm(props) {
   });
 
   const [sellerAddr, setSellerAddr] = useState(!loadData ? '' : loadData.addr),
-    [image, setimage] = useState(!loadData ? '' : loadData.pictureUrl),
-    [lat, setlat] = useState(!loadData ? '' : loadData.lat),
-    [lon, setlon] = useState(!loadData ? '' : loadData.lon);
+    [image, setImage] = useState(!loadData ? '' : loadData.pictureUrl),
+    [lat, setLat] = useState(!loadData ? '' : loadData.lat),
+    [lon, setLon] = useState(!loadData ? '' : loadData.lon);
 
   const valueChange = (e) => {
     setSellerAddConts({
       ...sellerAddConts,
       [e.target.name]: e.target.value,
     });
-    console.log(e);
-
     setSellerAddr(sellerAddr);
-    setlat(lat);
-    setlon(lon);
+    setLat(lat);
+    setLon(lon);
     if (e.target.files !== null) {
-      setimage(e.target.files[0].name);
+      setImage(e.target.files[0].name);
     }
-    getData({ sellerAddConts }, { sellerAddr }, { image }, { lat }, { lon });
   };
+  useEffect(() => {
+    getData(sellerAddConts, sellerAddr, image, lat, lon);
+  }, [sellerAddConts, sellerAddr, image, lat, lon]);
 
   return (
     <>
@@ -48,6 +48,7 @@ function SellerForm(props) {
           placeholder={`${mainCate}의 이름을 적어주세요.`}
           onChange={valueChange}
           value={sellerAddConts.name}
+          required="required"
         />
         <Input
           type="number"
@@ -57,6 +58,7 @@ function SellerForm(props) {
           placeholder={`${mainCate}의 가격을 적어주세요.`}
           onChange={valueChange}
           value={sellerAddConts.price}
+          required="required"
         />
         <div className="flex justify-center items-end">
           <Input
@@ -67,12 +69,13 @@ function SellerForm(props) {
             onChange={valueChange}
             value={sellerAddr}
             addClass="grow"
+            required="required"
           />
           <AddressBtn
             addClass="w-1/3 mt-3 ml-3"
             setSellerAddr={setSellerAddr}
-            setlat={setlat}
-            setlon={setlon}
+            setLat={setLat}
+            setLon={setLon}
           />
         </div>
         <Input
@@ -82,25 +85,34 @@ function SellerForm(props) {
           placeholder={`${mainCate} 설명을 적어주세요.`}
           onChange={valueChange}
           value={sellerAddConts.description}
+          required="required"
         />
-        <Input
-          type="number"
-          id="checkInTime"
-          label="체크인 시간"
-          name="checkInTime"
-          placeholder="체크인 시간을 적어주세요."
-          onChange={valueChange}
-          value={sellerAddConts.checkInTime}
-        />
-        <Input
-          type="number"
-          id="checKOutTime"
-          label="체크아웃 시간"
-          name="checKOutTime"
-          placeholder="체크아웃 시간을 적어주세요."
-          onChange={valueChange}
-          value={sellerAddConts.checKOutTime}
-        />
+        {mainPath !== 'leisure' ? (
+          <>
+            <Input
+              type="number"
+              id="checkInTime"
+              label="체크인 시간"
+              name="checkInTime"
+              placeholder="체크인 시간을 적어주세요."
+              onChange={valueChange}
+              value={sellerAddConts.checkInTime}
+              required="required"
+            />
+            <Input
+              type="number"
+              id="checKOutTime"
+              label="체크아웃 시간"
+              name="checKOutTime"
+              placeholder="체크아웃 시간을 적어주세요."
+              onChange={valueChange}
+              value={sellerAddConts.checKOutTime}
+              required="required"
+            />
+          </>
+        ) : (
+          ''
+        )}
         <Input
           type="number"
           id="minPerson"
@@ -109,6 +121,7 @@ function SellerForm(props) {
           placeholder="최소 인원을 적어주세요."
           onChange={valueChange}
           value={sellerAddConts.minPerson}
+          required="required"
         />
         <Input
           type="number"
@@ -118,8 +131,14 @@ function SellerForm(props) {
           placeholder="최대 인원을 적어주세요."
           onChange={valueChange}
           value={sellerAddConts.maxPerson}
+          required="required"
         />
-        <FileInput id="image" label="이미지 등록" onChange={valueChange} />
+        <FileInput
+          id="image"
+          name="image"
+          label="이미지 등록"
+          onChange={valueChange}
+        />
         {props.children}
       </div>
     </>

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useOutletContext,
+} from 'react-router-dom';
+import { useQuery, useMutation } from '@tanstack/react-query';
 import { axiosCustom } from '../../../../api/axiosCustom';
 import { Button, TitleSub } from '../../../../components/Atom';
 import SellerForm from '../../../../components/Admin/SellerForm';
 import { getSellerProductDetail } from '../../../../api/seller';
-import { useQuery } from '@tanstack/react-query';
 
 function SellerDetail() {
   const { mainCate, mainPath } = useOutletContext();
@@ -13,7 +18,7 @@ function SellerDetail() {
   let loca = useLocation();
   let pathParams = new URLSearchParams(loca.search);
 
-  const [sellerAddDatasss, setSellerAddDatasss] = useState({
+  const [sellerAddConts, setSellerAddConts] = useState({
     name: '',
     price: '',
     description: '',
@@ -21,12 +26,17 @@ function SellerDetail() {
     checKOutTime: '',
     minPerson: '',
     maxPerson: '',
-    image: '',
   });
 
-  const [asellerAddr, setAsellerAddr] = useState(''),
-    [alat, setalat] = useState(''),
-    [alon, setalon] = useState('');
+  const [sellerAddr, setSellerAddr] = useState(''),
+    [image, setImage] = useState(''),
+    [lat, setLat] = useState(''),
+    [lon, setLon] = useState('');
+
+  const { data: productDetail, isLoading: productLoading } = useQuery(
+    ['productDetail', mainPath, pathParams.get(`${mainPath}Id`)],
+    getSellerProductDetail
+  );
 
   const {
     name,
@@ -36,47 +46,38 @@ function SellerDetail() {
     checKOutTime,
     minPerson,
     maxPerson,
-    image,
-  } = sellerAddDatasss;
+  } = sellerAddConts;
 
-  const { data: productDetail, isLoading: productLoading } = useQuery(
-    ['productDetail', mainPath, pathParams.get(`${mainPath}Id`)],
-    getSellerProductDetail
-  );
-  if (productLoading) return 'Loading...';
-
-  const getData = (sellerAddConts, sellerAddr, lat, lon) => {
-    setSellerAddDatasss(sellerAddConts);
-    // setAsellerAddr(sellerAddr);
-    // setalat(lat);
-    // setalon(lon);
+  const getData = (sellerAddConts, sellerAddr, image, lat, lon) => {
+    setSellerAddConts(sellerAddConts);
+    setSellerAddr(sellerAddr);
+    setImage(image);
+    setLat(lat);
+    setLon(lon);
   };
 
-  const editProduct = (e) => {
-    console.log('editProduct');
-    e.preventDefault();
+  const postData = {
+    name: name,
+    addr: sellerAddr,
+    price: price,
+    pictureUrl: image,
+    description: description,
+    checkInTime: checkInTime,
+    checKOutTime: checKOutTime,
+    minPerson: minPerson,
+    maxPerson: maxPerson,
+    lat: lat,
+    lon: lon,
+  };
 
-    // PUT
+  const { mutate } = useMutation((postData) => {
     axiosCustom
       .put(
         `/seller/${mainPath}?sellerId=${pathParams.get(
           'sellerId'
         )}&${mainPath}Id=${pathParams.get(`${mainPath}Id`)}`,
+        postData,
         {
-          name: name,
-          addr: asellerAddr,
-          price: price,
-          pictureUrl: image,
-          description: description,
-          checkInTime: checkInTime,
-          checKOutTime: checKOutTime,
-          minPerson: minPerson,
-          maxPerson: maxPerson,
-          lat: alat,
-          lon: alon,
-        },
-        {
-          withCredentials: true,
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
@@ -84,7 +85,7 @@ function SellerDetail() {
       )
       .then((response) => {
         console.log(response);
-        alert('등록이 완료되었습니다.');
+        alert('수정이 완료되었습니다.');
         navigate(
           `/admin/seller/${mainPath}?sellerId=${pathParams.get(
             'sellerId'
@@ -92,8 +93,15 @@ function SellerDetail() {
         );
       })
       .catch((error) => {
-        alert(`등록에 실패했습니다. 에러 코드 : ${error}`);
+        alert(`수정에 실패했습니다. 에러 코드 : ${error}`);
       });
+  });
+
+  if (productLoading) return 'Loading...';
+
+  const editProduct = (e) => {
+    e.preventDefault();
+    mutate(postData);
   };
 
   const delProduct = () => {
@@ -124,10 +132,18 @@ function SellerDetail() {
       <TitleSub>{mainCate}시설 자세히 보기</TitleSub>
       <SellerForm loadData={productDetail.data} getData={getData}>
         <div className="flex justify-center items-center mt-6 gap-2">
-          <Button type="submit" addClass="w-1/3" onClick={editProduct}>
+          <Link
+            to={`/admin/seller/${mainPath}?sellerId=${pathParams.get(
+              'sellerId'
+            )}&page=0`}
+            className="btn btn-secondary border border-black w-1/5"
+          >
+            목록으로 돌아가기
+          </Link>
+          <Button type="submit" addClass="w-1/5" onClick={editProduct}>
             정보 변경
           </Button>
-          <Button type="submit" addClass="w-1/3" onClick={delProduct}>
+          <Button type="submit" addClass="w-1/5" onClick={delProduct}>
             삭제하기
           </Button>
         </div>
