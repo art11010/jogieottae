@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { customAxios } from '../../../../api/customAxios';
+import { axiosCustom } from '../../../../api/axiosCustom';
 import { Button, TitleSub } from '../../../../components/Atom';
 import SellerForm from '../../../../components/Admin/SellerForm';
 
@@ -67,7 +67,7 @@ function SellerAdd() {
 
   const { mutate, isLoading, isError, error, isSuccess } = useMutation(
     (postData) => {
-      customAxios
+      axiosCustom
         .post(
           `/seller/${mainPath}?sellerId=${pathParams.get('sellerId')}`,
           postData,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
-import { customAxios } from '../../../../api/customAxios';
+import { axiosCustom } from '../../../../api/axiosCustom';
 import { Button, TitleSub } from '../../../../components/Atom';
 import SellerForm from '../../../../components/Admin/SellerForm';
 import { getSellerProductDetail } from '../../../../api/seller';
@@ -57,7 +57,7 @@ function SellerDetail() {
     e.preventDefault();
 
     // PUT
-    customAxios
+    axiosCustom
       .put(
         `/seller/${mainPath}?sellerId=${pathParams.get(
           'sellerId'
@@ -97,7 +97,7 @@ function SellerDetail() {
   };
 
   const delProduct = () => {
-    customAxios
+    axiosCustom
       .delete(
         `/seller/${mainPath}?sellerId=${pathParams.get(
           'sellerId'
