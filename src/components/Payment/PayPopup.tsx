@@ -1,14 +1,14 @@
 import { TitleSub, BorderBox, Radio, Popup, CloseBtn } from '../Atom';
 
 import { useQuery } from '@tanstack/react-query';
-import { getCouponList } from '../../api/pay';
+import { getCouponList } from '../../api/payment';
 
 interface Item {
   id: number;
   salePrice: number;
   customerId: number;
   couponGroupId: number;
-  endTime: Array<number>;
+  endTime: string;
 }
 
 interface Props {
@@ -28,13 +28,16 @@ function PayPopup(props: Props): string | any {
     <Radio
       id={'coupon' + idx}
       name={'coupon' + listIdx}
-      key={item.id + idx}
+      key={idx}
       value={item.salePrice}
       onChange={(e: { target: { value: number } }) => {
         getCouponData(e.target.value);
       }}
     >
       {item.salePrice}원 할인
+      <span className="ml-3 text-sm text-gray-400">
+        {item.endTime.replaceAll('-', '.')}까지 사용 가능
+      </span>
     </Radio>
   ));
 

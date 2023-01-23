@@ -5,12 +5,12 @@ import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
 
 import { useQuery } from '@tanstack/react-query';
-import { getCartList } from '../../api/pay';
+import { getPayList } from '../../api/payment';
 
 function Payment() {
   const { data: payList, isLoading: payLoading } = useQuery(
-    ['cartGet'],
-    getCartList
+    ['payGet'],
+    getPayList
   );
   if (payLoading) return 'Loading...';
 
@@ -22,19 +22,15 @@ function Payment() {
           <TitleSub addClass="mb-2">예약자 정보</TitleSub>
           <PayPerson />
           <TitleSub addClass="mb-2">예약 정보</TitleSub>
-          <PayProduct payList={payList.leisureOrderItemList} />
+          <PayProduct payList={payList} />
         </ShadowBox>
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
-          <PayPrice
-            payList={payList.leisureOrderItemList}
-            totalPrice={payList.totalPrice}
-          />
+          <PayPrice payList={payList} />
           <Alink to="/payment/complete" addClass="mt-5 btn-block">
             결제하기
           </Alink>
         </ShadowBox>
-        {/* <PayPopup getCouponData={getCouponData} /> */}
       </div>
     </div>
   );
