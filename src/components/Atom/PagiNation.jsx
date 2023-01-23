@@ -28,8 +28,8 @@ function PagiNation(props) {
   }
 
   // 현재 페이지 기준 min, max 페이지 구하기
-  let intervalMin = 0,
-    intervalMax = 0;
+  let intervalMin = 1,
+    intervalMax = 1;
   for (var i = 1; i <= totalPageNum; i += 5) {
     if (i <= atvPageNum) {
       intervalMin = i;
@@ -48,13 +48,11 @@ function PagiNation(props) {
   }
   for (var i = intervalMin; i <= intervalMax; i++) {
     // page number 버튼
-    console.log();
-
     totalPagesArr.push(
       <Link
-        to={`${currentPath}?sellerId=${sellerId}&page=${i}`}
+        to={`${currentPath}?sellerId=${sellerId}&page=${i - 1}`}
         key={`page${i}`}
-        className={`btn ${i == atvPageNum ? 'btn-active' : ''}`}
+        className={`btn ${i - 1 == atvPageNum ? 'btn-active' : ''}`}
       >
         {i}
       </Link>

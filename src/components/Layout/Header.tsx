@@ -105,11 +105,13 @@ function Header() {
               판매자
             </h2>
             <Link to="/admin/seller">판매자 로그인</Link>
-            <Link to="/admin/seller/accm?sellerId=2&page=1">숙박시설 목록</Link>
-            <Link to="/admin/seller/accm/detail?accommodationId=2&sellerID=1">
-              숙박시설 상세
+            <Link to="/admin/seller/leisure?sellerId=1&page=1">
+              레저시설 목록
             </Link>
-            <Link to="/admin/seller/accm/add">숙박시설 등록</Link>
+            <Link to="/admin/seller/leisure/detail?sellerId=1&leisureId=2">
+              레저시설 상세
+            </Link>
+            <Link to="/admin/seller/leisure/add?sellerId=1">레저시설 등록</Link>
           </li>
         </ul>
       </div>

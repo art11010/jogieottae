@@ -36,9 +36,9 @@ import AdminFindPW from './pages/Admin/Login/FindPW';
 import AdminFindID from './pages/Admin/Login/FindID';
 import ManagerUserList from './pages/Admin/Manager/User/List';
 // seller
-import SellerList from './pages/Admin/Seller/Accm/List';
-import SellerDetail from './pages/Admin/Seller/Accm/Detail';
-import SellerAdd from './pages/Admin/Seller/Accm/Add';
+import SellerList from './pages/Admin/Seller/Leisure/List';
+import SellerDetail from './pages/Admin/Seller/Leisure/Detail';
+import SellerAdd from './pages/Admin/Seller/Leisure/Add';
 
 function Router() {
   return (

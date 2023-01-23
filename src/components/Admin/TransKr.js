@@ -29,6 +29,9 @@ export const tableKeyTransKR = (str) => {
     case 'lon':
       value = '경도';
       break;
+    case 'pictureUrl':
+      value = '등록된 사진명';
+      break;
   }
   str = value;
   return str;

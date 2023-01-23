@@ -3,7 +3,7 @@ import { useDaumPostcodePopup } from 'react-daum-postcode';
 import { Button } from '../Atom';
 
 function AddressBtn(props) {
-  const { addClass, setSellerAddr, setlat, setlon } = props;
+  const { addClass, setSellerAddr, setLat, setLon } = props;
 
   const addrPopupOpen = useDaumPostcodePopup(
     'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'
@@ -28,11 +28,11 @@ function AddressBtn(props) {
       if (status === daum.maps.services.Status.OK) {
         var result = results[0];
         var coords = new daum.maps.LatLng(result.y, result.x);
-        props.setlat(coords.La);
-        props.setlon(coords.Ma);
+        setLat(coords.La);
+        setLon(coords.Ma);
       }
     });
-    props.setSellerAddr(fullAddress);
+    setSellerAddr(fullAddress);
   };
 
   const AddressSettingClick = () => {
