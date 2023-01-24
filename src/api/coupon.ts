@@ -9,3 +9,25 @@ export const getCouponList = async () => {
     console.log(error);
   }
 };
+
+export const putCouponList = async (itemId: number, couponDto: number) => {
+  try {
+    const res = await axiosCustom.put(
+      `customer/leisure/cart/coupon?customerId=1&leisureOrderItemId=${itemId}&couponGroupId=${couponDto}`
+    );
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const delCouponList = async (delDto: number) => {
+  try {
+    const res = await axiosCustom.delete(
+      `/customer/leisure/cart/coupon?leisureOrderItemId=${delDto}`
+    );
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};

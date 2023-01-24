@@ -9,20 +9,27 @@ import {
 import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
 
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getCartList, postCartList } from '../../api/cart';
 
 function Cart() {
-  const { mutate: cartaddList, isLoading: cartaddLoading } =
-    useMutation(postCartList);
+  const client = useQueryClient();
+  const { mutate: cartaddList, isLoading: cartaddLoading } = useMutation(
+    postCartList,
+    {
+      onSuccess: () => {
+        client.invalidateQueries(['cartGet']);
+      },
+    }
+  );
 
   const { data: payList, isLoading: payLoading } = useQuery(
     ['cartGet'],
     getCartList
   );
 
-  if (cartaddLoading) return 'Loading...';
   if (payLoading) return 'Loading...';
+  if (cartaddLoading) return 'Loading...';
 
   return (
     <div className="container">
@@ -30,7 +37,7 @@ function Cart() {
       <Button
         onClick={() => {
           cartaddList({
-            productId: 4,
+            productId: 2,
             persons: 3,
             startAt: '2023-05-30T16:00',
             endAt: '2023-06-09T20:00',
