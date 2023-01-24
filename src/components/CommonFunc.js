@@ -1,5 +1,5 @@
 // 테이블 헤더에 들어갈 한글버전
-export const tableKeyTransKR = (str) => {
+export const TransKR = (str) => {
   let value = '';
   switch (str) {
     case 'id':
@@ -32,7 +32,18 @@ export const tableKeyTransKR = (str) => {
     case 'pictureUrl':
       value = '등록된 사진명';
       break;
+    case 'description':
+      value = '한 줄 소개';
+      break;
   }
   str = value;
   return str;
+};
+
+// 천의 자리
+export const ThousandSign = (v, decimalPoint) => {
+  return Number(v)
+    .toFixed(decimalPoint)
+    .toString()
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 };

@@ -16,6 +16,7 @@ function Header() {
           <img src={Logo} alt="조기어때" className="w-44" />
         </h1>
       </Link>
+      {/* 페이지 리스트 */}
       <div className="mr-4 dropdown dropdown-end">
         <label tabIndex={0} className="btn btn-secondary m-1">
           페이지 리스트
@@ -65,6 +66,9 @@ function Header() {
             <Link to="/product" className="pl-5 hover:text-main">
               상품 리스트
             </Link>
+            <Link to="/product/view" className="pl-5 hover:text-main">
+              상품 상세
+            </Link>
           </li>
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
@@ -87,17 +91,6 @@ function Header() {
           </li>
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
-              관리자
-            </h2>
-            <Link to="/admin">로그인</Link>
-            <Link to="/admin/join">회원가입</Link>
-            <Link to="/admin/findid">아이디 찾기</Link>
-            <Link to="/admin/findpw">비밀번호 찾기</Link>
-            <Link to="/admin/manager">관리자 로그인</Link>
-            <Link to="/admin/manager/user">회원 상태 관리</Link>
-          </li>
-          <li>
-            <h2 className="font-bold text-lg text-main pointer-events-none">
               판매자
             </h2>
             <Link to="/admin/seller">판매자 로그인</Link>
@@ -111,6 +104,7 @@ function Header() {
           </li>
         </ul>
       </div>
+      {/* 페이지 리스트 */}
       <div className="text-main font-bold">
         <FontAwesomeIcon icon={faUser} />
         <span className="ml-1">{pathParams.get('sellerId')}</span>

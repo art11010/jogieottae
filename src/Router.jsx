@@ -21,6 +21,7 @@ import WishList from './pages/Mypage/WishList';
 import UserDelete from './pages/Mypage/UserDelete';
 // Product
 import ProductList from './pages/Product/List';
+import ProductView from './pages/Product/View';
 // Pay
 import Cart from './pages/Cart/Cart';
 import Payment from './pages/Payment/Payment';
@@ -30,16 +31,11 @@ import Notice from './pages/Notice/Notice';
 // Admin
 import AdminLayout from './components/Admin/AdminLayout';
 import AdminSection from './components/Admin/AdminSection';
-// manager
-import Admin from './pages/Admin/Login/Login';
-import AdminJoin from './pages/Admin/Login/Join';
-import AdminFindPW from './pages/Admin/Login/FindPW';
-import AdminFindID from './pages/Admin/Login/FindID';
-import ManagerUserList from './pages/Admin/Manager/User/List';
 // seller
-import SellerList from './pages/Admin/Seller/Leisure/List';
-import SellerDetail from './pages/Admin/Seller/Leisure/Detail';
-import SellerAdd from './pages/Admin/Seller/Leisure/Add';
+import Admin from './pages/Admin/Login/Login';
+import SellerList from './components/Admin/Seller/List';
+import SellerDetail from './components/Admin/Seller/Detail';
+import SellerAdd from './components/Admin/Seller/Add';
 
 function Router() {
   return (
@@ -66,26 +62,29 @@ function Router() {
         <Route path={'join/complete'} element={<Complete />} />
         <Route path={'delete/complete'} element={<Complete />} />
         <Route path={'product'} element={<ProductList />} />
+        <Route path={'product/view'} element={<ProductView />} />
         <Route path={'notice'} element={<Notice />} />
       </Route>
       {/* AdminLayout */}
       <Route element={<AdminLayout />}>
-        <Route path={'admin'} element={<Admin />} />
-        <Route path={'admin/join'} element={<AdminJoin />} />
-        <Route path={'admin/findpw'} element={<AdminFindPW />} />
-        <Route path={'admin/findid'} element={<AdminFindID />} />
+        {/* 셀러 */}
+        <Route path={'admin/seller'} element={<Admin />} />
         <Route element={<AdminSection />}>
-          {/* 관리자 */}
-          <Route path={'admin/manager'} element={<Admin />} />
-          <Route path={'admin/manager/user'} element={<ManagerUserList />} />
-          {/* 셀러 */}
-          <Route path={'admin/seller'} element={<Admin />} />
           <Route path={'admin/seller/leisure'} element={<SellerList />} />
           <Route
             path={'admin/seller/leisure/detail'}
             element={<SellerDetail />}
           />
           <Route path={'admin/seller/leisure/add'} element={<SellerAdd />} />
+          <Route path={'admin/seller/accommodation'} element={<SellerList />} />
+          <Route
+            path={'admin/seller/accommodation/detail'}
+            element={<SellerDetail />}
+          />
+          <Route
+            path={'admin/seller/accommodation/add'}
+            element={<SellerAdd />}
+          />
         </Route>
       </Route>
     </Routes>
