@@ -4,7 +4,8 @@ function BookingCancel() {
   return (
     <>
       <BorderBox addClass="mt-12">
-        <div className="flex">
+        <div>
+          {/* <div className="flex">
           <div>
             <TitleSub addClass="mb-5">
               취소 사유 <span className="text-main">*</span>
@@ -17,7 +18,8 @@ function BookingCancel() {
               <option>업소 요청에 따른 이용불가</option>
             </select>
           </div>
-          <dl className="ml-10 pl-10 border-l border-gray-400 flex-grow text-lg">
+          <dl className="ml-10 pl-10 border-l border-gray-400 flex-grow text-lg"> */}
+          <dl className="flex-grow text-lg">
             <dt className="mb-5">
               <TitleSub>취소 및 환불 예상 정보</TitleSub>
             </dt>

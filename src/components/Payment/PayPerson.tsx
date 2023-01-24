@@ -11,13 +11,7 @@ function PayPerson(props: Props) {
   return (
     <div className="pt-5 pb-10 border-t border-gray-400">
       <Input id="name" label="이름" value={payList.customerName} readonly />
-      <Input
-        id="phone"
-        label="휴대폰 번호"
-        type="number"
-        value="01012341234"
-        readonly
-      />
+      <Input id="phone" label="이메일" value="gmail@gmail.com" readonly />
     </div>
   );
 }

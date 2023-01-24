@@ -8,6 +8,7 @@ interface Props {
         pictureUrl: string;
         persons: number;
         startAt: string;
+        salePrice: number;
         endAt: string;
       }
     ];
@@ -19,9 +20,9 @@ interface Props {
 function PayPrice(props: Props) {
   const { payList, cart } = props;
 
-  // let totalSalePrice = payList.reduce((acc, item) => {
-  //   return acc + item.salePrice;
-  // }, 0);
+  let totalSalePrice = payList.orderItemList.reduce((acc, item) => {
+    return acc + item.salePrice;
+  }, 0);
 
   return (
     <>
@@ -33,20 +34,17 @@ function PayPrice(props: Props) {
         <p className="flex justify-between">
           총 결제 금액{' '}
           <strong className="text-lg">
-            {/* {totalSalePrice !== 0 && (
-              <>
-                <span className="line-through mr-2 font-normal text-base">
-                  {totalPrice + totalSalePrice}원
-                </span>
-              </>
-            )} */}
             {cart ? (
               <>{payList.totalPrice}원</>
             ) : (
               <>
-                <span className="line-through mr-2 font-normal text-base">
-                  {payList.totalPrice}원
-                </span>
+                {totalSalePrice !== 0 && (
+                  <>
+                    <span className="line-through mr-2 font-normal text-base">
+                      {totalSalePrice + payList.totalPrice}원
+                    </span>
+                  </>
+                )}
                 {payList.totalPrice}원
               </>
             )}

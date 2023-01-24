@@ -1,7 +1,10 @@
-import React from 'react';
 import { Button, Input, Title, ShadowBox } from '../Atom';
 
-function SelectProduct(props) {
+interface Props {
+  addClass?: string;
+}
+
+function SelectProduct(props: Props) {
   const { addClass } = props;
   return (
     <ShadowBox addClass={addClass}>

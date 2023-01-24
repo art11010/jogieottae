@@ -1,8 +1,15 @@
-import React from 'react';
-import { TitleSub, BorderBox, Radio, Popup, PopupCloseBtn } from '../Atom';
+import React, { useState } from 'react';
+import {
+  TitleSub,
+  BorderBox,
+  Radio,
+  PopupBtn,
+  Popup,
+  PopupCloseBtn,
+} from '../Atom';
 
-import { useQuery } from '@tanstack/react-query';
-import { getCouponList } from '../../api/coupon';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { getCouponList, putCouponList, delCouponList } from '../../api/coupon';
 
 interface Item {
   id: number;
@@ -14,11 +21,20 @@ interface Item {
 
 interface Props {
   listIdx: number;
-  getCouponData: (couponPrice: number) => void;
+  orderItemId: number;
 }
 
 function PayPopup(props: Props) {
-  const { getCouponData, listIdx } = props;
+  const client = useQueryClient();
+  client.invalidateQueries(['couponGet']);
+  const { listIdx, orderItemId } = props;
+
+  const [putCoupon, setPutCoupon] = useState({
+    couponPrice: 0,
+    itemId: 0,
+    couponId: 0,
+  });
+
   const { data: couponList, isLoading: couponLoading } = useQuery(
     ['couponGet'],
     getCouponList
@@ -32,7 +48,12 @@ function PayPopup(props: Props) {
       key={idx}
       value={item.salePrice}
       onChange={(e: { target: { value: number } }) => {
-        getCouponData(e.target.value);
+        setPutCoupon({
+          ...putCoupon,
+          couponPrice: e.target.value,
+          itemId: orderItemId,
+          couponId: item.couponGroupId,
+        });
       }}
     >
       {item.salePrice}원 할인
@@ -43,27 +64,61 @@ function PayPopup(props: Props) {
   ));
 
   return (
-    <Popup id={'couponPopup' + listIdx}>
-      <TitleSub addClass="mb-2">쿠폰 할인</TitleSub>
-      <PopupCloseBtn
-        addClass="absolute top-3 right-3"
+    <>
+      <PopupBtn
         id={'couponPopup' + listIdx}
-      />
-      <BorderBox addClass="mt-5">
-        <h5 className="text-xl font-bold">보유 쿠폰</h5>
-        <div className="mt-3 pt-2 border-t border-gray-400">
-          <Radio id="coupon" name={'coupon' + listIdx} checked>
-            적용 안함
-          </Radio>
-          {couponListMap}
+        addClass="btn-block btn-secondary mt-2 justify-between font-normal"
+        onClick={() => {
+          {
+            putCoupon.couponPrice !== 0 && delCouponList(putCoupon.itemId);
+          }
+        }}
+      >
+        쿠폰 할인 <strong className="text-lg">{putCoupon.couponPrice}원</strong>
+      </PopupBtn>
+      <Popup id={'couponPopup' + listIdx}>
+        <TitleSub addClass="mb-2">쿠폰 할인</TitleSub>
+        <PopupCloseBtn
+          addClass="absolute top-3 right-3"
+          id={'couponPopup' + listIdx}
+        />
+        <BorderBox addClass="mt-5">
+          <h5 className="text-xl font-bold">보유 쿠폰</h5>
+          <div className="mt-3 pt-2 border-t border-gray-400">
+            <Radio
+              id="coupon"
+              name={'coupon' + listIdx}
+              checked
+              onChange={() => {
+                setPutCoupon({
+                  ...putCoupon,
+                  couponPrice: 0,
+                  itemId: orderItemId,
+                  couponId: 0,
+                });
+              }}
+            >
+              적용 안함
+            </Radio>
+            {couponListMap}
+          </div>
+        </BorderBox>
+        <div className="mt-6 text-right">
+          <label
+            htmlFor={'couponPopup' + listIdx}
+            className="btn btn-primary"
+            onClick={() => {
+              {
+                putCoupon.couponPrice !== 0 &&
+                  putCouponList(putCoupon.itemId, putCoupon.couponId);
+              }
+            }}
+          >
+            적용하기
+          </label>
         </div>
-      </BorderBox>
-      <div className="mt-6 text-right">
-        <label htmlFor={'couponPopup' + listIdx} className="btn btn-primary">
-          적용하기
-        </label>
-      </div>
-    </Popup>
+      </Popup>
+    </>
   );
 }
 

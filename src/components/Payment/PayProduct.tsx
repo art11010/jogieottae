@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Button, PopupBtn, IconX } from '../Atom';
+import React from 'react';
+import { Button, IconX } from '../Atom';
 import PayPopup from './PayPopup';
 
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { delCartList } from '../../api/cart';
 
 interface Props {
@@ -15,6 +15,7 @@ interface Props {
         pictureUrl: string;
         persons: number;
         startAt: string;
+        salePrice: number;
         endAt: string;
       }
     ];
@@ -23,21 +24,26 @@ interface Props {
   cart?: boolean;
   coupon?: number;
 }
+
 function PayProduct(props: Props) {
+  const client = useQueryClient();
   const { payList, cart } = props;
 
+  const { mutate: cartdelList, isLoading: cartdelLoading } = useMutation(
+    delCartList,
+    {
+      onSuccess: () => {
+        client.invalidateQueries(['cartGet']);
+      },
+    }
+  );
+  function cartdelListFn(e: number) {
+    cartdelList(e);
+  }
+
+  if (cartdelLoading) return <React.Fragment>Loading...</React.Fragment>;
+
   const payListMap = payList.orderItemList.map((item, idx) => {
-    const [coupon, setCoupon] = useState(0);
-
-    const { mutate: cartdelList, isLoading: cartdelLoading } =
-      useMutation(delCartList);
-    if (cartdelLoading)
-      return <React.Fragment key={item.name + idx}>Loading...</React.Fragment>;
-
-    const getCouponData = (couponPrice: number) => {
-      setCoupon(couponPrice);
-    };
-
     return (
       <div
         key={item.name + idx}
@@ -47,7 +53,7 @@ function PayProduct(props: Props) {
           <Button
             addClass="btn-circle btn-ghost absolute top-2 right-0"
             onClick={() => {
-              cartdelList(item.orderItemId);
+              cartdelListFn(item.orderItemId);
             }}
           >
             <IconX />
@@ -69,17 +75,18 @@ function PayProduct(props: Props) {
           </ul>
           <div className="mt-3">
             <p>
+              {!cart && item.salePrice !== 0 && (
+                <>
+                  <span className="line-through mr-2 font-normal text-base">
+                    {item.price + item.salePrice}원
+                  </span>
+                </>
+              )}
               <strong className="text-lg">{item.price}</strong>원
             </p>
             {!cart && (
               <>
-                <PopupBtn
-                  id={'couponPopup' + idx}
-                  addClass="btn-block btn-secondary mt-2 justify-between font-normal"
-                >
-                  쿠폰 할인 <strong className="text-lg">{coupon}원</strong>
-                </PopupBtn>
-                <PayPopup getCouponData={getCouponData} listIdx={idx} />
+                <PayPopup listIdx={idx} orderItemId={item.orderItemId} />
               </>
             )}
           </div>
