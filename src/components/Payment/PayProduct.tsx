@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, IconX } from '../Atom';
 import PayPopup from './PayPopup';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { delCartList } from '../../api/cart';
+
+import { useDispatch } from 'react-redux';
+import { loadingActions } from '../../redux/reducers/loadingReducer';
 
 interface Props {
   payList: {
@@ -27,6 +30,7 @@ interface Props {
 
 function PayProduct(props: Props) {
   const client = useQueryClient();
+  const dispatch = useDispatch();
   const { payList, cart } = props;
 
   const { mutate: cartdelList, isLoading: cartdelLoading } = useMutation(
@@ -37,11 +41,14 @@ function PayProduct(props: Props) {
       },
     }
   );
-  function cartdelListFn(e: number) {
+  useEffect(() => {
+    if (cartdelLoading) dispatch(loadingActions.loadingDisplay(true));
+    else dispatch(loadingActions.loadingDisplay(false));
+  }, [cartdelLoading]);
+
+  function cartdelItemId(e: number) {
     cartdelList(e);
   }
-
-  if (cartdelLoading) return <React.Fragment>Loading...</React.Fragment>;
 
   const payListMap = payList.orderItemList.map((item, idx) => {
     return (
@@ -53,7 +60,7 @@ function PayProduct(props: Props) {
           <Button
             addClass="btn-circle btn-ghost absolute top-2 right-0"
             onClick={() => {
-              cartdelListFn(item.orderItemId);
+              cartdelItemId(item.orderItemId);
             }}
           >
             <IconX />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   TitleSub,
   BorderBox,
@@ -8,8 +8,11 @@ import {
   PopupCloseBtn,
 } from '../Atom';
 
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getCouponList, putCouponList, delCouponList } from '../../api/coupon';
+
+import { useDispatch } from 'react-redux';
+import { loadingActions } from '../../redux/reducers/loadingReducer';
 
 interface Item {
   id: number;
@@ -26,10 +29,15 @@ interface Props {
 
 function PayPopup(props: Props) {
   const client = useQueryClient();
-  client.invalidateQueries(['couponGet']);
+  const dispatch = useDispatch();
   const { listIdx, orderItemId } = props;
 
-  const [putCoupon, setPutCoupon] = useState({
+  interface PutCoupon {
+    couponPrice: number;
+    itemId: number;
+    couponId: number;
+  }
+  const [putCoupon, setPutCoupon] = useState<PutCoupon>({
     couponPrice: 0,
     itemId: 0,
     couponId: 0,
@@ -39,6 +47,29 @@ function PayPopup(props: Props) {
     ['couponGet'],
     getCouponList
   );
+
+  const { mutate: couponPutList, isLoading: couponPutLoading } = useMutation(
+    putCouponList,
+    {
+      onSuccess: () => {
+        client.invalidateQueries(['payGet']);
+        client.invalidateQueries(['couponGet']);
+      },
+    }
+  );
+
+  const { mutate: couponDelList } = useMutation(delCouponList, {
+    onSuccess: () => {
+      client.invalidateQueries(['payGet']);
+      client.invalidateQueries(['couponGet']);
+    },
+  });
+
+  useEffect(() => {
+    if (couponPutLoading) dispatch(loadingActions.loadingDisplay(true));
+    else dispatch(loadingActions.loadingDisplay(false));
+  }, [couponPutLoading]);
+
   if (couponLoading) return <React.Fragment>Loading...</React.Fragment>;
 
   const couponListMap = couponList.map((item: Item, idx: number) => (
@@ -70,7 +101,7 @@ function PayPopup(props: Props) {
         addClass="btn-block btn-secondary mt-2 justify-between font-normal"
         onClick={() => {
           {
-            putCoupon.couponPrice !== 0 && delCouponList(putCoupon.itemId);
+            putCoupon.couponPrice !== 0 && couponDelList(putCoupon.itemId);
           }
         }}
       >
@@ -110,7 +141,10 @@ function PayPopup(props: Props) {
             onClick={() => {
               {
                 putCoupon.couponPrice !== 0 &&
-                  putCouponList(putCoupon.itemId, putCoupon.couponId);
+                  couponPutList({
+                    itemIdDto: putCoupon.itemId,
+                    couponDto: putCoupon.couponId,
+                  });
               }
             }}
           >

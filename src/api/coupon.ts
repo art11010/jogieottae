@@ -10,10 +10,14 @@ export const getCouponList = async () => {
   }
 };
 
-export const putCouponList = async (itemId: number, couponDto: number) => {
+interface PutDto {
+  itemIdDto: number;
+  couponDto: number;
+}
+export const putCouponList = async (putDto: PutDto) => {
   try {
     const res = await axiosCustom.put(
-      `customer/leisure/cart/coupon?customerId=1&leisureOrderItemId=${itemId}&couponGroupId=${couponDto}`
+      `customer/leisure/cart/coupon?customerId=1&leisureOrderItemId=${putDto.itemIdDto}&couponGroupId=${putDto.couponDto}`
     );
     return res;
   } catch (error) {

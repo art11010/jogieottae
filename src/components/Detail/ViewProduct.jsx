@@ -12,6 +12,9 @@ import {
 import ProductMap from '../../components/Atom/Map';
 import * as Common from '../CommonFunc.js';
 
+import { useMutation } from '@tanstack/react-query';
+import { postCartList } from '../../api/cart';
+
 // style
 export const ProductImg = styled.div`
   ${tw`
@@ -34,6 +37,10 @@ export const ProductImg = styled.div`
 
 function ViewProduct(props) {
   const { loadData } = props;
+
+  const { mutate: cartaddList, isLoading: cartaddLoading } =
+    useMutation(postCartList);
+  if (cartaddLoading) return 'Loading...';
 
   // 정보
   const needDetailKeys = [
@@ -84,7 +91,19 @@ function ViewProduct(props) {
                   {Common.ThousandSign(loadData.price)}원
                 </strong>
               </div>
-              <Button addClass="mt-3 btn-block">검색</Button>
+              <Button
+                addClass="mt-3 btn-block"
+                onClick={() => {
+                  cartaddList({
+                    productId: 2,
+                    persons: 3, // input 인원
+                    startAt: '2023-05-30T16:00', // input 체크인
+                    endAt: '2023-06-09T20:00', // input 체크아웃
+                  });
+                }}
+              >
+                검색
+              </Button>
             </ShadowBox>
           </div>
           <div className="cols-start-1 col-span-2">
