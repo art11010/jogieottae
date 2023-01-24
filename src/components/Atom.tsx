@@ -13,6 +13,7 @@ import PopupBtn from './Atom/PopupBtn';
 import PopupCloseBtn from './Atom/PopupCloseBtn';
 import IconHeart from './Atom/IconHeart';
 import IconX from './Atom/IconX';
+import Loading from './Atom/Loading';
 
 export {
   Alink,
@@ -30,4 +31,5 @@ export {
   PopupCloseBtn,
   IconHeart,
   IconX,
+  Loading,
 };
