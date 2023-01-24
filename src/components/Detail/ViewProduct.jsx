@@ -4,7 +4,7 @@ import tw from 'twin.macro';
 import {
   Title,
   TitleSub,
-  Heart,
+  IconHeart,
   Button,
   Input,
   ShadowBox,
@@ -59,7 +59,7 @@ function ViewProduct(props) {
     <>
       <div className="container">
         <div className="relative pr-8 box-border">
-          <Heart addClass="absolute top-2 right-2" />
+          <IconHeart addClass="absolute top-2 right-2" />
           <Title addClass="mb-2">{loadData.name}</Title>
           <p className="row-start-2 col-span-2 mb-5">{loadData.addr}</p>
         </div>
