@@ -1,8 +1,8 @@
 import React from 'react';
 import SellerList from '../../../../components/Admin/Seller/List';
 
-function SellerLeisureList() {
+function SellerAccmList() {
   return <SellerList />;
 }
 
-export default SellerLeisureList;
+export default SellerAccmList;

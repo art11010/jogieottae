@@ -1,0 +1,28 @@
+{
+  "code": "SUCCESS_CODE",
+  "description": "성공적으로 작업을 수행 했습니다.",
+  "data": [
+    {
+      "productId": 1,
+      "sellerId": 2,
+      "name": "숙박시설 디테일",
+      "addr": "서울",
+      "price": null,
+      "minPerson": null,
+      "maxPerson": null,
+      "lat": 126.41628405427,
+      "lon": 34.7451681972739
+    },
+    {
+      "productId": 1,
+      "sellerId": 2,
+      "name": "숙박시설 디테일",
+      "addr": "서울",
+      "price": null,
+      "minPerson": null,
+      "maxPerson": null,
+      "lat": 126.695829497354,
+      "lon": 35.437319680111
+    }
+  ]
+}

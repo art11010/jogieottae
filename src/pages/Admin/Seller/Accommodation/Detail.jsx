@@ -1,8 +1,8 @@
 import React from 'react';
 import SellerDetail from '../../../../components/Admin/Seller/Detail';
 
-function SellerLeisureDetail() {
+function SellerAccmDetail() {
   return <SellerDetail />;
 }
 
-export default SellerLeisureDetail;
+export default SellerAccmDetail;

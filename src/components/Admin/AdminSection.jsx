@@ -9,8 +9,10 @@ function AdminSection() {
   const userType = pathName.includes('manager')
     ? 'ManagerMenuList'
     : 'SellerMenuList';
-  const mainCate = pathName.includes('accm') ? '숙박' : '레저';
-  const mainPath = pathName.includes('accm') ? 'accm' : 'leisure';
+  const mainCate = pathName.includes('accommodation') ? '숙박' : '레저';
+  const mainPath = pathName.includes('accommodation')
+    ? 'accommodation'
+    : 'leisure';
 
   const [menu, setMenu] = useState([]);
   useEffect(() => {

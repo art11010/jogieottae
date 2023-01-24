@@ -68,6 +68,9 @@ function Header() {
             <Link to="/product" className="pl-5 hover:text-main">
               상품 리스트
             </Link>
+            <Link to="/product/view" className="pl-5 hover:text-main">
+              상품 상세
+            </Link>
           </li>
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
@@ -87,18 +90,6 @@ function Header() {
             <Link to="/notice" className="pl-5 hover:text-main">
               공지사항
             </Link>
-          </li>
-          <li>
-            <h2 className="font-bold text-lg text-main pointer-events-none">
-              관리자
-            </h2>
-            <Link to="/admin">로그인</Link>
-            <Link to="/admin/join">회원가입</Link>
-            <Link to="/admin/findid">아이디 찾기</Link>
-            <Link to="/admin/findpw">비밀번호 찾기</Link>
-            <Link to="/admin/accm">숙박 시설 관리</Link>
-            <Link to="/admin/manager">관리자 로그인</Link>
-            <Link to="/admin/manager/user">회원 상태 관리</Link>
           </li>
           <li>
             <h2 className="font-bold text-lg text-main pointer-events-none">
