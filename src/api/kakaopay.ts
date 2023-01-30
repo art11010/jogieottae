@@ -2,10 +2,10 @@ import { axiosCustom } from './axiosCustom';
 
 interface PostDto {
   customerId: number;
-  leisureItemId: number;
-  leisureId: string;
-  price: string;
-  tid: string;
+  cartId: number;
+  productId: number;
+  price: number;
+  tid: null;
 }
 export const postKakaopay = async (postDto: PostDto) => {
   try {
@@ -13,6 +13,7 @@ export const postKakaopay = async (postDto: PostDto) => {
       '/customer/leisure/payment/kakaopay',
       postDto
     );
+    console.log(res);
     return res;
   } catch (error) {
     console.log(error);

@@ -1,5 +1,9 @@
+import { Alink, Button } from '../Atom';
+import { useMutation } from '@tanstack/react-query';
+import { postKakaopay } from '../../api/kakaopay';
 interface Props {
   payList: {
+    cartId: number;
     orderItemList: [
       {
         orderItemId: number;
@@ -19,6 +23,14 @@ interface Props {
 
 function PayPrice(props: Props) {
   const { payList, cart } = props;
+  const { mutate: kakaopayPost, isLoading: kakaopayLoading } = useMutation(
+    postKakaopay,
+    {
+      onSuccess: () => {
+        // client.invalidateQueries(['cartGet']);
+      },
+    }
+  );
 
   let totalSalePrice = payList.orderItemList.reduce((acc, item) => {
     return acc + item.salePrice;
@@ -51,6 +63,26 @@ function PayPrice(props: Props) {
           </strong>
         </p>
       </div>
+      {cart ? (
+        <Alink to="/payment" addClass="mt-5 btn-block">
+          예약하기
+        </Alink>
+      ) : (
+        <Button
+          addClass="mt-5 btn-block"
+          onClick={() => {
+            kakaopayPost({
+              customerId: 1,
+              cartId: payList.cartId,
+              productId: payList.orderItemList[0].orderItemId,
+              price: payList.totalPrice,
+              tid: null,
+            });
+          }}
+        >
+          결제하기
+        </Button>
+      )}
     </>
   );
 }

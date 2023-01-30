@@ -1,10 +1,4 @@
-import {
-  Alink,
-  Title,
-  TitleSub,
-  ShadowBox,
-  Button,
-} from '../../components/Atom';
+import { Title, TitleSub, ShadowBox, Button } from '../../components/Atom';
 
 import PayProduct from '../../components/Payment/PayProduct';
 import PayPrice from '../../components/Payment/PayPrice';
@@ -54,9 +48,6 @@ function Cart() {
         <ShadowBox>
           <TitleSub addClass="mb-2">금액 정보</TitleSub>
           <PayPrice payList={payList} cart />
-          <Alink to="/payment" addClass="mt-5 btn-block">
-            예약하기
-          </Alink>
         </ShadowBox>
       </div>
     </div>
