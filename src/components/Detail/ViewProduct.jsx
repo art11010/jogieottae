@@ -81,8 +81,18 @@ function ViewProduct(props) {
           <div className="cols-start-2">
             <ShadowBox>
               <div className="grid grid-cols-2 gap-5">
-                <Input id="in" label="체크인 날짜" type="date" />
-                <Input id="out" label="체크아웃 날짜" type="date" />
+                <Input
+                  id="in"
+                  label="체크인 날짜"
+                  type="date"
+                  value={loadData.startAt}
+                />
+                <Input
+                  id="out"
+                  label="체크아웃 날짜"
+                  type="date"
+                  value={loadData.endAt}
+                />
               </div>
               <Input id="num" label="인원" />
               <div className="flex justify-between items-end mt-5 mb-3">
@@ -102,7 +112,7 @@ function ViewProduct(props) {
                   });
                 }}
               >
-                검색
+                장바구니 담기
               </Button>
             </ShadowBox>
           </div>
