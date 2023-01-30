@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { cartActions } from '../../redux/reducers/cartReducer';
+import { useSelector } from 'react-redux';
 // assets
 import Logo from '../../assets/logo.png';
 
@@ -9,9 +8,8 @@ function Header() {
     return state.cart.num;
   });
 
-  const dispatch = useDispatch();
   return (
-    <header className="mb-10 container flex items-center py-5 relative">
+    <header className="mb-10 container flex items-center py-5">
       <Link to="/" className="mr-auto">
         <h1>
           <img src={Logo} alt="조기어때" className="w-44" />
@@ -127,17 +125,6 @@ function Header() {
       <Link to="/login" className="pl-5 hover:text-main">
         로그인
       </Link>
-
-      {/* cart add btn, 지울 때 header - relative도 같이 */}
-      <button
-        className="hover:text-main absolute top-16 right-0"
-        onClick={() => {
-          dispatch(cartActions.cartIncrement());
-        }}
-      >
-        test cart add
-      </button>
-      {/* cart add btn */}
     </header>
   );
 }
