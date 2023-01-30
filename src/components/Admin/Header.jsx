@@ -107,7 +107,7 @@ function Header() {
       {/* 페이지 리스트 */}
       <div className="text-main font-bold">
         <FontAwesomeIcon icon={faUser} />
-        <span className="ml-1">{pathParams.get('sellerId')}</span>
+        <span className="ml-1">seller{pathParams.get('sellerId')}</span>
       </div>
     </header>
   );

@@ -15,6 +15,9 @@ import * as Common from '../CommonFunc.js';
 import { useMutation } from '@tanstack/react-query';
 import { postCartList } from '../../api/cart';
 
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../redux/reducers/cartReducer';
+
 // style
 export const ProductImg = styled.div`
   ${tw`
@@ -62,6 +65,7 @@ function ViewProduct(props) {
     }
   });
 
+  const dispatch = useDispatch();
   return (
     <>
       <div className="container">
@@ -110,6 +114,7 @@ function ViewProduct(props) {
                     startAt: '2023-05-30T16:00', // input 체크인
                     endAt: '2023-06-09T20:00', // input 체크아웃
                   });
+                  dispatch(cartActions.cartIncrement());
                 }}
               >
                 장바구니 담기
