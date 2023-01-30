@@ -4,9 +4,10 @@ const SERVER_ADDRESS = 'http://zogioddae.us-east-1.elasticbeanstalk.com';
 
 export const axiosCustom: AxiosInstance = axios.create({
   baseURL: `${SERVER_ADDRESS}`, // 기본 서버 주소 입력
-  // headers: {
-  //   access_token: cookies.get('access_token'),
-  // },
+  headers: {
+    'Content-type': 'application/json;charset=UTF-8',
+    // access_token: cookies.get('access_token'),
+  },
 });
 
 // 블로그
