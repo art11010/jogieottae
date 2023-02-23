@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 // import cookies from 'js-cookie';
-const SERVER_ADDRESS = 'http://zogioddae.us-east-1.elasticbeanstalk.com';
+const SERVER_ADDRESS = 'https://zogioddae.us-east-1.elasticbeanstalk.com';
 
 export const axiosCustom: AxiosInstance = axios.create({
   baseURL: `${SERVER_ADDRESS}`, // 기본 서버 주소 입력
