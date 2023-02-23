@@ -24,16 +24,11 @@
 
 ## 🛠 Skills
 
-- React
-- React Query
-- Redux
-- JavaScript
-- TypeScript
-- TailwindCSS
-- daisyUI
-- Vite
-- Styled Components
+- React, React Query, Redux
+- JavaScript, TypeScript
 - axios
+- TailwindCSS, daisyUI, Styled Components
+- Vite
 
 <br/>
 
