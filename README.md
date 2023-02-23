@@ -1,17 +1,14 @@
-# 조기어때
+# <img src="https://user-images.githubusercontent.com/49858735/220897221-43347771-e50d-4bb1-a2ba-64fb5e0a0d6d.png" alt="" width="200"/>
 
-## ✍️ Projects
  https://user-images.githubusercontent.com/49858735/220893743-5a1dc89f-565a-4239-be9e-243a3a8fda11.mp4
 
 
 > 2022.12..23 - 2023.02.03    
 > **Front-End Developer**
 
+<br/>
 
-<div style="display: flex;">
-  <img src="" alt=""/>
-  <img src="" alt=""/>
-</div>
+## ✍️ Projects
 
 - Target
     - 여행을 계획하는 사용자들
